@@ -1,0 +1,46 @@
+---
+import { LOCALES, alternatePath, getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+const current = getLangFromUrl(Astro.url);
+const t = useTranslations(current);
+---
+
+<nav aria-label={t('lang.label')} class:list={['flex items-center text-sm tracking-widest', className]}>
+  {
+    LOCALES.map((locale, i) => (
+      <>
+        {i > 0 && <span class="px-1 text-muted" aria-hidden="true">|</span>}
+        <a
+          href={alternatePath(Astro.url.pathname, locale)}
+          hreflang={locale}
+          lang={locale}
+          aria-label={t(`lang.${locale}Name`)}
+          aria-current={locale === current ? 'true' : undefined}
+          data-lang-link
+          class:list={[
+            'inline-flex min-h-11 min-w-9 items-center justify-center transition-colors hover:text-wood',
+            locale === current ? 'font-semibold text-ink' : 'text-muted-ink',
+          ]}
+        >
+          {t(`lang.${locale}`)}
+        </a>
+      </>
+    ))
+  }
+</nav>
+
+<script>
+  // Aktuelle Sektion (#anker) beim Sprachwechsel mitnehmen
+  document.querySelectorAll<HTMLAnchorElement>('a[data-lang-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const url = new URL(link.href);
+      url.hash = window.location.hash;
+      link.href = url.href;
+    });
+  });
+</script>

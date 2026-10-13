@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+import { getImage } from 'astro:assets';
+import silkTexture from '../assets/brand/silk-texture.jpg';
+import { SITE } from '../config/site';
+import { LOCALES, alternatePath, getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Absoluter oder site-relativer Pfad zum OG-Bild (1200×630) */
+  ogImage?: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { title = t('meta.title'), description = t('meta.description'), ogImage } = Astro.props;
+
+const absolute = (path: string) => new URL(path, Astro.site).href;
+const canonical = absolute(Astro.url.pathname);
+const alternates = LOCALES.map((locale) => ({ locale, href: absolute(alternatePath(Astro.url.pathname, locale)) }));
+const xDefault = alternates.find((alt) => alt.locale === 'tr')!.href;
+const ogLocale = { tr: 'tr_TR', en: 'en_US' } as const;
+
+const silk = await getImage({ src: silkTexture, format: 'webp', quality: 60 });
+---
+
+<!doctype html>
+<html lang={lang} style={`--silk: url('${silk.src}')`}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F4F1EC" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((alt) => <link rel="alternate" hreflang={alt.locale} href={alt.href} />)}
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale[lang]} />
+    {
+      LOCALES.filter((locale) => locale !== lang).map((locale) => (
+        <meta property="og:locale:alternate" content={ogLocale[locale]} />
+      ))
+    }
+    {ogImage && <meta property="og:image" content={absolute(ogImage)} />}
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-bg"
+    >
+      {t('a11y.skipToContent')}
+    </a>
+    <slot />
+  </body>
+</html>

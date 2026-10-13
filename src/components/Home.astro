@@ -1,0 +1,43 @@
+---
+// Gemeinsamer Inhalt der Startseite für TR (/) und EN (/en/). Die Sektionen folgen in Phase 3.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Band from './Band.astro';
+import LangSwitch from './LangSwitch.astro';
+import Logo from './Logo.astro';
+import { waLink } from '../config/site';
+import { getLangFromUrl, localizedPath, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BaseLayout>
+  <header class="container-page flex items-center justify-between py-4">
+    <a href={localizedPath('/', lang)} aria-label={t('a11y.home')}>
+      <Logo />
+    </a>
+    <LangSwitch />
+  </header>
+
+  <main id="main">
+    <section class="bg-silk">
+      <div class="container-page py-20 md:py-28">
+        <p class="eyebrow">{t('hero.badge')}</p>
+        <h1 class="display-script mt-4">{t('hero.title')}</h1>
+        <p class="mt-6 max-w-xl text-lg">{t('hero.claim')}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            class="btn btn-primary"
+            href={waLink(t('whatsapp.general'))}
+            target="_blank"
+            rel="noopener"
+            aria-label={t('cta.whatsappAria')}
+          >
+            {t('cta.whatsapp')}
+          </a>
+        </div>
+      </div>
+    </section>
+    <Band />
+  </main>
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+// Logo als HTML/CSS nachgebaut (Script-Wortmarke + taupefarbenes Band), weil die Logodatei den Tippfehler „DESING" enthält.
+import { SITE } from '../config/site';
+
+interface Props {
+  size?: 'sm' | 'lg';
+  class?: string;
+}
+
+const { size = 'sm', class: className = '' } = Astro.props;
+const wordmark = size === 'lg' ? 'text-6xl md:text-7xl' : 'text-4xl';
+const tagline = size === 'lg' ? 'text-xs md:text-sm px-4 py-1.5' : 'text-[0.625rem] px-2.5 py-1';
+---
+
+<span class:list={['inline-flex flex-col items-center leading-none', className]}>
+  <span class:list={['font-script text-ink', wordmark]}>{SITE.wordmark}</span>
+  <span lang="en" class:list={['-mt-1 bg-taupe font-medium tracking-[0.3em] text-bg', tagline]}>
+    {SITE.tagline}
+  </span>
+</span>

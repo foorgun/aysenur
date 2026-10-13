@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "Ayşenur Yılmazkan | İç Mimar – Online İç Mimarlık, Türkiye & KKTC",
+    "description": "İç mimar Ayşenur Yılmazkan: konut ve ticari mekânlar için iç mekan tasarımı, 3D görselleştirme ve yerleşim planı. Türkiye'nin her yerinden ve KKTC'den online hizmet."
+  },
+  "a11y": {
+    "skipToContent": "İçeriğe geç",
+    "mainNav": "Ana menü",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "home": "Ana sayfa"
+  },
+  "lang": {
+    "label": "Dil seçimi",
+    "tr": "TR",
+    "en": "EN",
+    "trName": "Türkçe",
+    "enName": "English"
+  },
+  "nav": {
+    "services": "Hizmetler",
+    "packages": "Paketler",
+    "projects": "Projeler",
+    "process": "Süreç",
+    "about": "Hakkımda",
+    "contact": "İletişim"
+  },
+  "cta": {
+    "whatsapp": "WhatsApp'tan Yazın",
+    "whatsappAria": "WhatsApp üzerinden Ayşenur Yılmazkan'a yazın (yeni sekmede açılır)",
+    "viewProjects": "Projeleri Gör",
+    "packageInfo": "Bu paket için yazın",
+    "getQuote": "Teklif alın",
+    "similarProject": "Benzer bir proje için yazın",
+    "instagram": "Instagram'da takip edin",
+    "email": "E-posta gönderin"
+  },
+  "hero": {
+    "title": "Size özel iç mekanlar",
+    "claim": "Yaşam alanınızı size özel, sade ve sıcak tasarımlarla dönüştürüyorum.",
+    "badge": "Türkiye geneli & KKTC · Online"
+  },
+  "sections": {
+    "services": {
+      "title": "Hizmetler",
+      "intro": "Tek bir odadan komple projeye, ihtiyacınız olan kadarını birlikte planlıyoruz."
+    },
+    "packages": {
+      "title": "Paketler",
+      "intro": "İhtiyacınıza uyan paketi seçin, detayları WhatsApp'ta konuşalım.",
+      "popular": "En çok tercih edilen",
+      "askPrice": "Fiyat için yazın",
+      "priceFrom": "{price}'den başlayan",
+      "note": "Tüm online paketler Türkiye'nin her yerinden ve KKTC'den alınabilir. Fiyatlar tek oda içindir."
+    },
+    "beforeAfter": {
+      "title": "Render → Gerçek",
+      "intro": "Tasarladığım mekânların ekrandaki hali ile hayata geçmiş hali, yan yana.",
+      "render": "3D Render",
+      "real": "Gerçek Uygulama",
+      "sliderAria": "Render ile gerçek uygulamayı karşılaştırın"
+    },
+    "projects": {
+      "title": "Projeler",
+      "intro": "Konuttan ticari mekâna, tamamı tarafımdan tasarlanan işlerden bir seçki.",
+      "filterAll": "Tümü",
+      "filterResidential": "Konut",
+      "filterCommercial": "Ticari",
+      "filterExterior": "Dış Cephe & Plan",
+      "builtBadge": "Hayata geçti"
+    },
+    "process": {
+      "title": "Süreç",
+      "intro": "İlk mesajdan teslime kadar dört adım."
+    },
+    "about": {
+      "title": "Hakkımda",
+      "education": "Eğitim",
+      "software": "Kullandığım programlar"
+    },
+    "contact": {
+      "title": "İletişim",
+      "intro": "Türkiye'nin her yerinden ve KKTC'den online çalışıyorum.",
+      "whatsapp": "WhatsApp",
+      "email": "E-posta",
+      "instagram": "Instagram",
+      "locations": "Konum"
+    }
+  },
+  "whatsapp": {
+    "general": "Merhaba Ayşenur Hanım, web sitenizden ulaşıyorum. İç mimarlık hizmetleriniz hakkında bilgi almak istiyorum.",
+    "package": "Merhaba, {name} hakkında bilgi almak istiyorum.",
+    "project": "Merhaba Ayşenur Hanım, web sitenizdeki \"{name}\" projesine benzer bir çalışma için bilgi almak istiyorum.",
+    "floatAria": "WhatsApp'tan yazın"
+  },
+  "footer": {
+    "serviceArea": "Türkiye'nin her yerinden ve KKTC'den online hizmet",
+    "privacy": "Gizlilik & KVKK",
+    "imprint": "Künye",
+    "rights": "Tüm hakları saklıdır."
+  }
+}
