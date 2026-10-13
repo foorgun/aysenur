@@ -1,14 +1,18 @@
 {
   "meta": {
     "title": "Ayşenur Yılmazkan | İç Mimar – Online İç Mimarlık, Türkiye & KKTC",
-    "description": "İç mimar Ayşenur Yılmazkan: konut ve ticari mekânlar için iç mekan tasarımı, 3D görselleştirme ve yerleşim planı. Türkiye'nin her yerinden ve KKTC'den online hizmet."
+    "description": "İç mimar Ayşenur Yılmazkan: konut ve ticari mekânlar için iç mekan tasarımı, 3D görselleştirme ve yerleşim planı. Türkiye'nin her yerinden ve KKTC'den online hizmet.",
+    "projectTitle": "{name} | yilmazkan Interior Design",
+    "ogAlt": "yilmazkan Interior Design – iç mimar Ayşenur Yılmazkan"
   },
   "a11y": {
     "skipToContent": "İçeriğe geç",
     "mainNav": "Ana menü",
+    "footerNav": "Alt menü",
     "openMenu": "Menüyü aç",
     "closeMenu": "Menüyü kapat",
-    "home": "Ana sayfa"
+    "home": "Ana sayfa",
+    "newTab": "yeni sekmede açılır"
   },
   "lang": {
     "label": "Dil seçimi",
@@ -20,6 +24,7 @@
   "nav": {
     "services": "Hizmetler",
     "packages": "Paketler",
+    "compare": "Render → Gerçek",
     "projects": "Projeler",
     "process": "Süreç",
     "about": "Hakkımda",
@@ -27,76 +32,164 @@
   },
   "cta": {
     "whatsapp": "WhatsApp'tan Yazın",
+    "whatsappShort": "WhatsApp",
     "whatsappAria": "WhatsApp üzerinden Ayşenur Yılmazkan'a yazın (yeni sekmede açılır)",
     "viewProjects": "Projeleri Gör",
     "packageInfo": "Bu paket için yazın",
     "getQuote": "Teklif alın",
     "similarProject": "Benzer bir proje için yazın",
-    "instagram": "Instagram'da takip edin",
-    "email": "E-posta gönderin"
+    "viewProject": "Projeyi incele",
+    "allProjects": "Tüm projeler",
+    "backHome": "Ana sayfaya dön"
   },
   "hero": {
-    "title": "Size özel iç mekanlar",
+    "eyebrow": "Ayşenur Yılmazkan · İç Mimar",
+    "title": "Sade, sıcak ve size ait.",
     "claim": "Yaşam alanınızı size özel, sade ve sıcak tasarımlarla dönüştürüyorum.",
-    "badge": "Türkiye geneli & KKTC · Online"
+    "badge": "Türkiye geneli & KKTC · Online",
+    "portraitAlt": "İç mimar Ayşenur Yılmazkan'ın portresi",
+    "renderAlt": "Ayşenur Yılmazkan tasarımı: kemerli nişleri olan 1+1 dairenin salon ve yemek alanı, 3D render"
   },
-  "sections": {
-    "services": {
-      "title": "Hizmetler",
-      "intro": "Tek bir odadan komple projeye, ihtiyacınız olan kadarını birlikte planlıyoruz."
-    },
-    "packages": {
-      "title": "Paketler",
-      "intro": "İhtiyacınıza uyan paketi seçin, detayları WhatsApp'ta konuşalım.",
-      "popular": "En çok tercih edilen",
-      "askPrice": "Fiyat için yazın",
-      "priceFrom": "{price}'den başlayan",
-      "note": "Tüm online paketler Türkiye'nin her yerinden ve KKTC'den alınabilir. Fiyatlar tek oda içindir."
-    },
-    "beforeAfter": {
-      "title": "Render → Gerçek",
-      "intro": "Tasarladığım mekânların ekrandaki hali ile hayata geçmiş hali, yan yana.",
-      "render": "3D Render",
-      "real": "Gerçek Uygulama",
-      "sliderAria": "Render ile gerçek uygulamayı karşılaştırın"
-    },
-    "projects": {
-      "title": "Projeler",
-      "intro": "Konuttan ticari mekâna, tamamı tarafımdan tasarlanan işlerden bir seçki.",
-      "filterAll": "Tümü",
-      "filterResidential": "Konut",
-      "filterCommercial": "Ticari",
-      "filterExterior": "Dış Cephe & Plan",
-      "builtBadge": "Hayata geçti"
-    },
-    "process": {
-      "title": "Süreç",
-      "intro": "İlk mesajdan teslime kadar dört adım."
-    },
-    "about": {
-      "title": "Hakkımda",
-      "education": "Eğitim",
-      "software": "Kullandığım programlar"
-    },
-    "contact": {
-      "title": "İletişim",
-      "intro": "Türkiye'nin her yerinden ve KKTC'den online çalışıyorum.",
-      "whatsapp": "WhatsApp",
-      "email": "E-posta",
-      "instagram": "Instagram",
-      "locations": "Konum"
+  "services": {
+    "title": "Hizmetler",
+    "eyebrow": "Neler yapıyorum",
+    "intro": "Tek bir odadan komple projeye: iç mimarlık hizmetini ihtiyacınız kadar, yüz yüze ya da online alabilirsiniz.",
+    "cta": "Hangi hizmetin size uygun olduğundan emin değil misiniz? Yazın, birlikte bakalım.",
+    "items": {
+      "interior": {
+        "title": "İç Mekan Tasarımı",
+        "text": "Yaşam tarzınıza, bütçenize ve evin ölçülerine göre renk, malzeme, mobilya ve aydınlatmayı tek bir bütün olarak tasarlıyorum."
+      },
+      "render": {
+        "title": "3D Görselleştirme & Render",
+        "text": "3D iç mekan tasarımı ve fotogerçekçi renderlarla, uygulamaya başlamadan önce mekânınızın bitmiş halini görürsünüz."
+      },
+      "plan": {
+        "title": "2D Yerleşim Planı",
+        "text": "Ölçülü yerleşim planı ile her mobilyanın yeri ve boyutu netleşir; alışverişe ne alacağınızı bilerek çıkarsınız."
+      },
+      "commercial": {
+        "title": "Ticari Mekan Tasarımı",
+        "text": "Restoran, klinik ve ofisler için markanızı yansıtan, misafir ve çalışan akışı düşünülmüş mekânlar."
+      },
+      "exterior": {
+        "title": "Dış Cephe Tasarımı",
+        "text": "Konut ve ticari yapılar için cephe tasarımı ve satış sürecini destekleyen kat planı görselleştirmeleri."
+      },
+      "online": {
+        "title": "Online Birebir Danışmanlık",
+        "text": "Bir saatlik görüntülü görüşmede aklınızdaki soruları çözüyoruz. Online iç mimar desteği, bulunduğunuz şehirden bağımsız."
+      }
     }
+  },
+  "packages": {
+    "title": "Paketler",
+    "eyebrow": "Size uygun olanı seçin",
+    "intro": "Kısa bir danışmanlıktan komple ev tasarımına kadar beş paket. Detayları WhatsApp'ta birlikte netleştiririz.",
+    "popular": "En çok tercih edilen",
+    "askPrice": "Fiyat için yazın",
+    "priceFrom": "{price}'den başlayan",
+    "includes": "Pakete dahil",
+    "note": "Tüm online paketler Türkiye'nin her yerinden ve KKTC'den alınabilir. Fiyatlar tek oda içindir."
+  },
+  "compare": {
+    "title": "Render → Gerçek",
+    "eyebrow": "Tasarımdan uygulamaya",
+    "intro": "Ekranda gördüğünüz tasarım, hayata geçtiğinde de aynı görünmeli. Çizgiyi sürükleyerek 3D render ile gerçek uygulamayı karşılaştırın.",
+    "render": "3D Render",
+    "real": "Gerçek Uygulama",
+    "sliderAria": "{name}: render ile gerçek uygulamayı karşılaştırma kaydırıcısı",
+    "cta": "Sizin mekânınız da önce ekranda, sonra gerçekte hayat bulsun."
+  },
+  "projects": {
+    "title": "Projeler",
+    "eyebrow": "Seçilmiş işler",
+    "intro": "Konuttan restorana, klinikten dış cepheye: tamamı tarafımdan tasarlanan projelerden bir seçki.",
+    "filterLabel": "Projeleri kategoriye göre filtrele",
+    "filterAll": "Tümü",
+    "builtBadge": "Hayata geçti",
+    "categories": {
+      "konut": "Konut",
+      "ticari": "Ticari",
+      "dis-cephe": "Dış Cephe & Plan"
+    },
+    "cta": "Beğendiğiniz bir proje mi var? Benzerini sizin için tasarlayabilirim.",
+    "detailCtaTitle": "Benzer bir proje mi düşünüyorsunuz?",
+    "detailCtaText": "Mekânınızın ölçülerini ve aklınızdakileri WhatsApp'tan gönderin; size uygun paketi birlikte belirleyelim.",
+    "gallery": "Görseller",
+    "more": "Diğer projeler",
+    "imageCount": "{count} görsel"
+  },
+  "lightbox": {
+    "open": "Görseli büyüt",
+    "close": "Kapat",
+    "prev": "Önceki görsel",
+    "next": "Sonraki görsel",
+    "label": "Görsel galerisi"
+  },
+  "process": {
+    "title": "Süreç",
+    "eyebrow": "Nasıl çalışıyoruz",
+    "intro": "İlk mesajdan teslime kadar dört net adım.",
+    "cta": "İlk adım kısa bir mesaj.",
+    "steps": {
+      "1": {
+        "title": "Tanışma görüşmesi",
+        "text": "WhatsApp'tan yazarsınız; mekânınızı, beklentinizi ve bütçenizi konuşur, size uygun paketi belirleriz."
+      },
+      "2": {
+        "title": "Ölçü & ihtiyaç analizi",
+        "text": "Mekânın ölçülerini, fotoğraflarını ve beğendiğiniz örnekleri paylaşırsınız. Online çalışmalarda ölçü almanız için sizi yönlendiririm."
+      },
+      "3": {
+        "title": "Konsept, plan ve 3D tasarım",
+        "text": "Yerleşim planını ve 3D tasarımı hazırlarım; revizyonlarla tasarımı birlikte son haline getiririz."
+      },
+      "4": {
+        "title": "Teslim ve uygulama desteği",
+        "text": "Renderlar, çizimler ve ürün listeleri elinize ulaşır. Uygulama sırasında sorularınız için yanınızdayım."
+      }
+    }
+  },
+  "about": {
+    "title": "Hakkımda",
+    "eyebrow": "İç mimar Ayşenur Yılmazkan",
+    "p1": "Merhaba, ben Ayşenur. Serbest çalışan bir iç mimarım ve yilmazkan Interior Design çatısı altında konutlar ile ticari mekânlar tasarlıyorum.",
+    "p2": "Lefkoşa ve İzmir merkezli çalışıyorum; online paketlerle Türkiye'nin her yerinden ve KKTC'den projeler alıyorum. Sade çizgileri, sıcak tonları ve doğal dokuları seviyorum; her tasarımı, o mekânda yaşayacak kişiye göre kuruyorum.",
+    "p3": "Bu sitedeki tüm projeler bana ait. Bir kısmını, render ile gerçek uygulamayı yan yana görebileceğiniz şekilde paylaştım.",
+    "portraitAlt": "Ayşenur Yılmazkan'ın siyah beyaz portre fotoğrafı",
+    "education": "Eğitim",
+    "educationItems": {
+      "1": "Uluslararası Kıbrıs Üniversitesi – İç Mimarlık",
+      "2": "İzmir Kâtip Çelebi Üniversitesi – Diş Teknolojisi"
+    },
+    "software": "Kullandığım programlar",
+    "cta": "Projenizi bana anlatın"
+  },
+  "contact": {
+    "title": "İletişim",
+    "eyebrow": "Birlikte başlayalım",
+    "intro": "Türkiye'nin her yerinden ve KKTC'den online çalışıyorum. En hızlı yol WhatsApp: mekânınızı birkaç cümleyle anlatmanız yeterli.",
+    "whatsappTitle": "WhatsApp'tan yazın",
+    "whatsappText": "Mekânınızı, ölçüleri ve aklınızdakileri yazın; gerisini birlikte planlarız.",
+    "email": "E-posta",
+    "instagram": "Instagram",
+    "locations": "Konum",
+    "serviceArea": "Hizmet bölgesi"
   },
   "whatsapp": {
     "general": "Merhaba Ayşenur Hanım, web sitenizden ulaşıyorum. İç mimarlık hizmetleriniz hakkında bilgi almak istiyorum.",
-    "package": "Merhaba, {name} hakkında bilgi almak istiyorum.",
     "project": "Merhaba Ayşenur Hanım, web sitenizdeki \"{name}\" projesine benzer bir çalışma için bilgi almak istiyorum.",
-    "floatAria": "WhatsApp'tan yazın"
+    "floatAria": "WhatsApp'tan yazın (yeni sekmede açılır)"
   },
   "footer": {
     "serviceArea": "Türkiye'nin her yerinden ve KKTC'den online hizmet",
     "privacy": "Gizlilik & KVKK",
     "imprint": "Künye",
     "rights": "Tüm hakları saklıdır."
+  },
+  "notFound": {
+    "title": "Sayfa bulunamadı",
+    "text": "Aradığınız sayfa taşınmış ya da hiç var olmamış olabilir."
   }
 }

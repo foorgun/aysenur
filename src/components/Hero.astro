@@ -1,0 +1,50 @@
+---
+// Split-Hero: Das Hero-Bild ist 1122×1402 px (Hochformat) – zu klein für ein vollflächiges Desktop-Bild (CLAUDE.md §9).
+import { Image } from 'astro:assets';
+import heroImage from '../assets/brand/hero.jpg';
+import renderImage from '../assets/projects/1-1-ev-tasarimi-a/01.jpg';
+import WhatsAppButton from './WhatsAppButton.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<section class="bg-silk relative overflow-hidden">
+  <div class="container-page grid items-center gap-10 pb-14 pt-28 md:grid-cols-[1.05fr_0.95fr] md:gap-12 md:pb-20 md:pt-36">
+    <div>
+      <p class="eyebrow">{t('hero.eyebrow')}</p>
+      <h1 class="display-script mt-4">{t('hero.title')}</h1>
+      <p class="mt-5 max-w-md text-lg md:text-xl">{t('hero.claim')}</p>
+      <p class="mt-6 inline-flex items-center gap-2 rounded-full border border-taupe/50 bg-bg/60 px-4 py-1.5 text-sm">
+        <span class="size-1.5 rounded-full bg-wood" aria-hidden="true"></span>
+        {t('hero.badge')}
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <WhatsAppButton />
+        <a href="#projects" class="btn btn-ghost">{t('cta.viewProjects')}</a>
+      </div>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-[26rem] md:mr-0">
+      <div class="absolute -inset-x-6 bottom-10 h-16 bg-taupe md:-right-[50vw] md:h-20" aria-hidden="true"></div>
+      <Image
+        src={heroImage}
+        alt={t('hero.portraitAlt')}
+        widths={[420, 640, 832, 1122]}
+        sizes="(min-width: 768px) 416px, 90vw"
+        quality={72}
+        loading="eager"
+        fetchpriority="high"
+        class="relative aspect-[4/5] w-full rounded-t-full object-cover object-top shadow-[0_30px_60px_-30px_rgb(43_40_38/0.45)]"
+      />
+      <Image
+        src={renderImage}
+        alt={t('hero.renderAlt')}
+        widths={[176, 352]}
+        sizes="176px"
+        loading="eager"
+        class="absolute -bottom-4 -left-3 aspect-[3/4] w-32 rounded-xl border-4 border-bg object-cover shadow-lg sm:-left-10 sm:w-44"
+      />
+    </div>
+  </div>
+</section>

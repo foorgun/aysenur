@@ -1,0 +1,76 @@
+---
+// Schwebender WhatsApp-Button (CLAUDE.md §8): 58 px, unten rechts, über allem, mit dezenter Puls-Animation.
+import Icon from './Icon.astro';
+import { waLink } from '../config/site';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<a
+  href={waLink(t('whatsapp.general'))}
+  target="_blank"
+  rel="noopener"
+  aria-label={t('whatsapp.floatAria')}
+  class="wa-float"
+>
+  <Icon name="whatsapp" size={32} />
+</a>
+
+<style>
+  .wa-float {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 50;
+    display: grid;
+    width: 58px;
+    height: 58px;
+    place-items: center;
+    border-radius: 999px;
+    background-color: var(--whatsapp);
+    color: #fff;
+    box-shadow: 0 6px 20px rgb(43 40 38 / 0.3);
+    transition: transform 0.2s ease;
+  }
+
+  .wa-float:hover {
+    transform: scale(1.06);
+  }
+
+  .wa-float::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-color: var(--whatsapp);
+    animation: wa-pulse 2.8s ease-out infinite;
+  }
+
+  @keyframes wa-pulse {
+    0% {
+      opacity: 0.45;
+      transform: scale(1);
+    }
+    70%,
+    100% {
+      opacity: 0;
+      transform: scale(1.55);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wa-float::before {
+      animation: none;
+      opacity: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .wa-float {
+      right: 1.5rem;
+      bottom: 1.5rem;
+    }
+  }
+</style>

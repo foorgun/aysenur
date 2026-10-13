@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+import { formatPrice, getLangFromUrl, pick, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const packages = (await getCollection('packages')).sort((a, b) => a.data.order - b.data.order);
+
+// TODO(content): KDV-Hinweis klären (dahil / hariç / nicht anwendbar) und unter den Karten ergänzen
+---
+
+<section id="packages" class="section bg-surface">
+  <div class="container-page">
+    <SectionHeading eyebrow={t('packages.eyebrow')} title={t('packages.title')} intro={t('packages.intro')} />
+
+    <ul class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-6 lg:gap-6">
+      {
+        packages.map(({ data }) => {
+          const showPrice = data.showPrice && data.price !== undefined;
+          const price = showPrice ? formatPrice(data.price!, lang) : null;
+          return (
+            <li
+              class:list={[
+                'relative flex flex-col rounded-2xl bg-bg p-6 md:p-8',
+                showPrice ? 'lg:col-span-2' : 'lg:col-span-3',
+                data.highlight && 'ring-2 ring-taupe',
+                // ungerade Kartenzahl: letzte Karte füllt auf Tablet die ganze Zeile
+                packages.length % 2 === 1 && 'last:md:max-lg:col-span-2',
+              ]}
+              data-reveal
+            >
+              {data.highlight && (
+                <p class="absolute -top-3 left-6 rounded-full bg-taupe px-3 py-1 text-xs font-medium tracking-wide text-white md:left-8">
+                  {t('packages.popular')}
+                </p>
+              )}
+              <h3 class="text-2xl font-medium">{pick(data.title, lang)}</h3>
+              <p class="mt-2 text-muted-ink">{pick(data.tagline, lang)}</p>
+
+              <p class="mt-6 border-y border-ink/10 py-4">
+                <span class="block text-2xl font-medium">
+                  {price ? (data.priceFrom ? t('packages.priceFrom', { price }) : price) : t('packages.askPrice')}
+                </span>
+                {data.unit && price && <span class="text-sm text-muted-ink">{pick(data.unit, lang)}</span>}
+              </p>
+
+              <ul class="mt-5 flex flex-col gap-2.5" aria-label={t('packages.includes')}>
+                {pick(data.features, lang).map((feature) => (
+                  <li class="flex gap-2.5">
+                    <Icon name="check" size={20} class="mt-1 shrink-0 text-wood" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {pick(data.notes, lang).map((note) => (
+                <p class="mt-4 text-sm text-muted-ink">{note}</p>
+              ))}
+
+              <div class="mt-auto pt-7">
+                <WhatsAppButton
+                  message={pick(data.waText, lang)}
+                  label={showPrice ? t('cta.packageInfo') : t('cta.getQuote')}
+                  variant={data.highlight ? 'primary' : 'ghost'}
+                  class="w-full"
+                />
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    <p class="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-ink">{t('packages.note')}</p>
+  </div>
+</section>

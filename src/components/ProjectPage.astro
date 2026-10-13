@@ -1,0 +1,143 @@
+---
+// Projektdetailseite – gemeinsam für /projeler/[slug]/ (TR) und /en/projects/[slug]/ (EN)
+import { Image, getImage } from 'astro:assets';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CompareSlider from './CompareSlider.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import Icon from './Icon.astro';
+import Lightbox from './Lightbox.astro';
+import ProjectCard from './ProjectCard.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+import { getLangFromUrl, localizedPath, pick, safeWidths, useTranslations } from '../i18n/utils';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { data } = project;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const title = pick(data.title, lang);
+const facts = [data.location, data.year].filter(Boolean);
+
+const images = await Promise.all(
+  data.images.map(async (image) => ({
+    ...image,
+    alt: pick(image.alt, lang),
+    full: await getImage({ src: image.src, format: 'webp', quality: 85 }),
+  })),
+);
+
+const all = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const position = all.findIndex((entry) => entry.id === project.id);
+const more = [1, 2, 3].map((offset) => all[(position + offset) % all.length]);
+---
+
+<BaseLayout title={t('meta.projectTitle', { name: title })} description={pick(data.summary, lang)}>
+  <Header solid />
+
+  <main id="main" class="pt-[4.5rem]">
+    <article>
+      <header class="container-page pb-10 pt-10 md:pb-14 md:pt-16">
+        <a href={`${localizedPath('/', lang)}#projects`} class="link-arrow text-sm">
+          <Icon name="chevronLeft" size={16} />
+          {t('cta.allProjects')}
+        </a>
+        <p class="eyebrow mt-6">
+          {t(`projects.categories.${data.category}`)}
+          {facts.map((fact) => <span> · {fact}</span>)}
+        </p>
+        <h1 class="section-title mt-2">{title}</h1>
+        {
+          data.hasRealPhoto && (
+            <p class="mt-4 inline-block rounded-full bg-taupe px-3 py-1 text-xs font-medium tracking-wide text-white">
+              {t('projects.builtBadge')}
+            </p>
+          )
+        }
+        <p class="mt-5 max-w-2xl text-lg">{pick(data.description, lang)}</p>
+      </header>
+
+      {
+        data.compare.length > 0 && (
+          <section class="bg-surface py-12 md:py-16" aria-label={t('compare.title')}>
+            <div class="container-page">
+              <ul class:list={['grid gap-x-8 gap-y-10', data.compare.length > 1 && 'md:grid-cols-2']}>
+                {data.compare.map((pair, i) => (
+                  <li>
+                    <figure>
+                      <CompareSlider
+                        render={pair.render}
+                        real={pair.real}
+                        label={pick(pair.label, lang)}
+                        loading={i === 0 ? 'eager' : 'lazy'}
+                      />
+                      <figcaption class="mt-3 text-center font-medium">{pick(pair.label, lang)}</figcaption>
+                    </figure>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )
+      }
+
+      <section class="container-page py-12 md:py-16">
+        <h2 class="eyebrow">
+          {t('projects.gallery')} · {t('projects.imageCount', { count: String(images.length) })}
+        </h2>
+        <ul class="mt-6 gap-5 sm:columns-2 lg:gap-6">
+          {
+            images.map((image, i) => (
+              <li class="mb-5 break-inside-avoid lg:mb-6">
+                <a
+                  href={image.full.src}
+                  data-lightbox
+                  data-alt={image.alt}
+                  data-width={image.src.width}
+                  data-height={image.src.height}
+                  aria-label={`${t('lightbox.open')}: ${image.alt}`}
+                  class:list={['group block overflow-hidden rounded-2xl', image.dark ? 'bg-black' : 'bg-surface']}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    widths={safeWidths(image.src.width)}
+                    sizes="(min-width: 1152px) 540px, (min-width: 640px) 46vw, 92vw"
+                    loading={i < 2 ? 'eager' : 'lazy'}
+                    class="mx-auto h-auto w-full transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    style={`max-width: ${image.src.width}px`}
+                  />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </article>
+
+    <section class="bg-silk py-14 md:py-20">
+      <div class="container-page flex flex-col items-center gap-5 text-center">
+        <h2 class="section-title">{t('projects.detailCtaTitle')}</h2>
+        <p class="max-w-xl text-lg">{t('projects.detailCtaText')}</p>
+        <WhatsAppButton message={t('whatsapp.project', { name: title })} label={t('cta.similarProject')} />
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-page">
+        <h2 class="section-title text-center">{t('projects.more')}</h2>
+        <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          {more.map((entry, i) => <li class:list={[i === 2 && 'sm:max-lg:hidden']}><ProjectCard project={entry} /></li>)}
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <Lightbox />
+</BaseLayout>

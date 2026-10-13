@@ -1,0 +1,178 @@
+---
+// Leichtgewichtige Lightbox auf Basis von <dialog>. Öffnet Links mit `data-lightbox`
+// (href = großes Bild, data-width/-height = Originalmaße, damit nie hochskaliert wird).
+import Icon from './Icon.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<dialog class="lightbox" aria-label={t('lightbox.label')} data-lightbox-dialog>
+  <figure class="lightbox-figure">
+    <img alt="" data-lightbox-image />
+    <figcaption data-lightbox-caption></figcaption>
+  </figure>
+  <button type="button" class="lightbox-btn lightbox-close" aria-label={t('lightbox.close')} data-lightbox-close>
+    <Icon name="close" />
+  </button>
+  <button type="button" class="lightbox-btn lightbox-prev" aria-label={t('lightbox.prev')} data-lightbox-prev>
+    <Icon name="chevronLeft" />
+  </button>
+  <button type="button" class="lightbox-btn lightbox-next" aria-label={t('lightbox.next')} data-lightbox-next>
+    <Icon name="chevronRight" />
+  </button>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-lightbox-dialog]');
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('a[data-lightbox]'));
+
+  if (dialog && links.length) {
+    const image = dialog.querySelector<HTMLImageElement>('[data-lightbox-image]')!;
+    const caption = dialog.querySelector<HTMLElement>('[data-lightbox-caption]')!;
+    const prev = dialog.querySelector<HTMLButtonElement>('[data-lightbox-prev]')!;
+    const next = dialog.querySelector<HTMLButtonElement>('[data-lightbox-next]')!;
+    let index = 0;
+
+    const show = (i: number) => {
+      index = (i + links.length) % links.length;
+      const link = links[index];
+      const alt = link.dataset.alt ?? '';
+      image.src = link.href;
+      image.alt = alt;
+      image.width = Number(link.dataset.width);
+      image.height = Number(link.dataset.height);
+      // nie größer als das Original anzeigen
+      image.style.maxWidth = `min(100%, ${link.dataset.width}px)`;
+      caption.textContent = `${alt} (${index + 1}/${links.length})`;
+    };
+
+    links.forEach((link, i) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        show(i);
+        dialog.showModal();
+      });
+    });
+
+    const single = links.length < 2;
+    prev.hidden = single;
+    next.hidden = single;
+    prev.addEventListener('click', () => show(index - 1));
+    next.addEventListener('click', () => show(index + 1));
+    dialog.querySelector('[data-lightbox-close]')?.addEventListener('click', () => dialog.close());
+    // Klick auf den abgedunkelten Hintergrund schließt
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') show(index - 1);
+      if (event.key === 'ArrowRight') show(index + 1);
+    });
+    dialog.addEventListener('close', () => links[index]?.focus());
+  }
+</script>
+
+<style>
+  .lightbox {
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgb(28 26 25 / 0.96);
+    color: var(--bg);
+  }
+
+  .lightbox::backdrop {
+    background: rgb(28 26 25 / 0.96);
+  }
+
+  .lightbox[open] {
+    display: grid;
+    place-items: center;
+  }
+
+  .lightbox-figure {
+    display: flex;
+    max-width: 100%;
+    max-height: 100dvh;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 4rem 1rem 1.25rem;
+    pointer-events: none;
+  }
+
+  .lightbox-figure img {
+    width: auto;
+    height: auto;
+    max-height: calc(100dvh - 9rem);
+    border-radius: 0.5rem;
+    object-fit: contain;
+    pointer-events: auto;
+  }
+
+  .lightbox-figure figcaption {
+    max-width: 40rem;
+    font-size: 0.9rem;
+    text-align: center;
+    color: rgb(244 241 236 / 0.85);
+    pointer-events: auto;
+  }
+
+  .lightbox-btn {
+    position: absolute;
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    place-items: center;
+    border-radius: 999px;
+    background-color: rgb(244 241 236 / 0.14);
+    color: var(--bg);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .lightbox-btn:hover {
+    background-color: rgb(244 241 236 / 0.3);
+  }
+
+  .lightbox-btn:focus-visible {
+    outline-color: var(--bg);
+  }
+
+  .lightbox-close {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .lightbox-prev {
+    left: 0.5rem;
+  }
+
+  .lightbox-next {
+    right: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .lightbox-prev,
+    .lightbox-next {
+      top: auto;
+      bottom: 0.75rem;
+      transform: none;
+    }
+
+    .lightbox-figure {
+      padding-bottom: 4.5rem;
+    }
+  }
+</style>

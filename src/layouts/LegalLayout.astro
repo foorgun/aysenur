@@ -1,0 +1,33 @@
+---
+// Layout für Markdown-Seiten (Gizlilik/KVKK, Privacy). Titel und Beschreibung kommen aus dem Frontmatter.
+import BaseLayout from './BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Icon from '../components/Icon.astro';
+import { SITE } from '../config/site';
+import { getLangFromUrl, localizedPath, useTranslations } from '../i18n/utils';
+
+interface Props {
+  frontmatter: { title: string; description: string; updated?: string };
+}
+
+const { frontmatter } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BaseLayout title={`${frontmatter.title} | ${SITE.name}`} description={frontmatter.description}>
+  <Header solid />
+  <main id="main" class="container-page pb-20 pt-28 md:pb-28 md:pt-36">
+    <a href={localizedPath('/', lang)} class="link-arrow text-sm">
+      <Icon name="chevronLeft" size={16} />
+      {t('cta.backHome')}
+    </a>
+    <h1 class="section-title mt-6">{frontmatter.title}</h1>
+    {frontmatter.updated && <p class="mt-2 text-sm text-muted-ink">{frontmatter.updated}</p>}
+    <div class="prose-legal">
+      <slot />
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

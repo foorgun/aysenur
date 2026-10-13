@@ -20,7 +20,7 @@ const lookup = (dict: unknown, key: string): string | undefined => {
   return typeof value === 'string' ? value : undefined;
 };
 
-/** `t('whatsapp.package', { name })` – fällt auf Türkisch zurück, falls ein Schlüssel in EN fehlt. */
+/** `t('whatsapp.project', { name })` – fällt auf Türkisch zurück, falls ein Schlüssel in EN fehlt. */
 export function useTranslations(lang: Lang) {
   return function t(key: TKey, vars: Record<string, string> = {}): string {
     const template = lookup(dictionaries[lang], key) ?? lookup(dictionaries[DEFAULT_LANG], key) ?? key;
@@ -28,13 +28,16 @@ export function useTranslations(lang: Lang) {
   };
 }
 
+/** Zweisprachiges Inhaltsfeld (`{ tr, en }`) → Wert der aktuellen Sprache. */
+export const pick = <T,>(field: Record<Lang, T>, lang: Lang): T => field[lang];
+
 export function getLangFromUrl(url: URL): Lang {
   const [, first] = url.pathname.split('/');
   return first === 'en' ? 'en' : DEFAULT_LANG;
 }
 
 // Übersetzte Pfadsegmente: TR-Segment → EN-Segment
-const SEGMENTS_TR_EN: Record<string, string> = { projeler: 'projects' };
+const SEGMENTS_TR_EN: Record<string, string> = { projeler: 'projects', gizlilik: 'privacy' };
 const SEGMENTS_EN_TR = Object.fromEntries(Object.entries(SEGMENTS_TR_EN).map(([a, b]) => [b, a]));
 
 /** Sprachneutraler (türkischer) Pfad → Pfad in der Zielsprache, z. B. `/projeler/lobi/` → `/en/projects/lobi/`. */
@@ -52,4 +55,16 @@ export function alternatePath(pathname: string, target: Lang): string {
   const rest = isEn ? segments.slice(1) : segments;
   const neutral = rest.map((segment, i) => (isEn && i === 0 ? (SEGMENTS_EN_TR[segment] ?? segment) : segment));
   return localizedPath(`/${neutral.join('/')}`, target);
+}
+
+/** TR `3.000 ₺`, EN `₺3,000` */
+export function formatPrice(amount: number, lang: Lang): string {
+  return lang === 'tr'
+    ? `${new Intl.NumberFormat('tr-TR').format(amount)} ₺`
+    : `₺${new Intl.NumberFormat('en-US').format(amount)}`;
+}
+
+/** Bildbreiten für `astro:assets`, nie größer als das Original (Bilder stammen aus dem PDF, siehe CLAUDE.md §9). */
+export function safeWidths(originalWidth: number, candidates: number[] = [360, 540, 720, 960]): number[] {
+  return [...candidates.filter((width) => width < originalWidth), originalWidth];
 }

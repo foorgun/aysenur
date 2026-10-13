@@ -1,0 +1,18 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  intro?: string;
+  align?: 'left' | 'center';
+  /** Überschriften-Ebene; Standard h2 (h1 gibt es nur einmal pro Seite) */
+  as?: 'h1' | 'h2';
+}
+
+const { eyebrow, title, intro, align = 'center', as: Tag = 'h2' } = Astro.props;
+---
+
+<div class:list={['max-w-2xl', align === 'center' && 'mx-auto text-center']} data-reveal>
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <Tag class="section-title mt-2">{title}</Tag>
+  {intro && <p class="mt-4 text-muted-ink">{intro}</p>}
+</div>

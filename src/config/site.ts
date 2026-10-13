@@ -10,6 +10,8 @@ export const SITE = {
   instagram: 'designer.ayilmazkan',
   locations: ['Lefkoşa / KKTC', 'Bornova / İzmir'],
   serviceArea: { tr: 'Türkiye geneli & KKTC', en: 'All of Türkiye & Northern Cyprus' },
+  software: ['AutoCAD', 'SketchUp', '3ds Max', 'Corona Renderer', 'Enscape'],
+  ogImage: '/og.jpg',
 } as const;
 
 export const waLink = (text: string) =>
@@ -19,5 +21,8 @@ export const instagramUrl = `https://instagram.com/${SITE.instagram}`;
 export const mailtoUrl = `mailto:${SITE.email}`;
 
 // Anker der One-Pager-Sektionen – in beiden Sprachen identisch, damit der Sprachumschalter die Sektion behält
-export const SECTIONS = ['services', 'packages', 'projects', 'process', 'about', 'contact'] as const;
+export const SECTIONS = ['services', 'packages', 'compare', 'projects', 'process', 'about', 'contact'] as const;
 export type SectionId = (typeof SECTIONS)[number];
+
+// Reihenfolge der Hauptnavigation (CLAUDE.md §7)
+export const NAV = ['services', 'packages', 'projects', 'about', 'contact'] as const satisfies readonly SectionId[];

@@ -1,0 +1,28 @@
+---
+import SectionCta from './SectionCta.astro';
+import SectionHeading from './SectionHeading.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+const steps = ['1', '2', '3', '4'] as const;
+---
+
+<section id="process" class="section">
+  <div class="container-page">
+    <SectionHeading eyebrow={t('process.eyebrow')} title={t('process.title')} intro={t('process.intro')} />
+
+    <ol class="mt-12 grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        steps.map((step) => (
+          <li class="border-t-4 border-taupe pt-5" data-reveal>
+            <span class="font-script text-5xl leading-none text-wood" aria-hidden="true">{step}</span>
+            <h3 class="mt-2 text-xl font-medium">{t(`process.steps.${step}.title`)}</h3>
+            <p class="mt-2 text-muted-ink">{t(`process.steps.${step}.text`)}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <SectionCta text={t('process.cta')} />
+  </div>
+</section>

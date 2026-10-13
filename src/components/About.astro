@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/brand/portrait.jpg';
+import WhatsAppButton from './WhatsAppButton.astro';
+import { SITE } from '../config/site';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+const education = ['1', '2'] as const;
+---
+
+<section id="about" class="section bg-silk">
+  <div class="container-page grid items-start gap-10 md:grid-cols-[auto_1fr] md:gap-16">
+    <div class="mx-auto md:mx-0" data-reveal>
+      <!-- Porträt ist nur 386×488 px groß → bewusst klein darstellen -->
+      <Image
+        src={portrait}
+        alt={t('about.portraitAlt')}
+        widths={[224, 386]}
+        sizes="224px"
+        class="size-56 rounded-full border-4 border-bg object-cover object-top shadow-lg"
+      />
+    </div>
+
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">{t('about.eyebrow')}</p>
+      <h2 class="section-title mt-2">{t('about.title')}</h2>
+      <div class="mt-5 flex flex-col gap-4 text-lg">
+        <p>{t('about.p1')}</p>
+        <p>{t('about.p2')}</p>
+        <p>{t('about.p3')}</p>
+      </div>
+
+      <div class="mt-8 grid gap-8 sm:grid-cols-2">
+        <div>
+          <h3 class="eyebrow">{t('about.education')}</h3>
+          <ul class="mt-3 flex flex-col gap-2">
+            {education.map((id) => <li>{t(`about.educationItems.${id}`)}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h3 class="eyebrow">{t('about.software')}</h3>
+          <ul class="mt-3 flex flex-wrap gap-2">
+            {
+              SITE.software.map((name) => (
+                <li lang="en" class="rounded-full border border-taupe/50 bg-bg/70 px-3 py-1 text-sm">
+                  {name}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-9">
+        <WhatsAppButton label={t('about.cta')} />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+---
+// Bewusst ohne Kontaktformular (CLAUDE.md §3) – primärer Weg ist WhatsApp.
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+import { SITE, instagramUrl, mailtoUrl } from '../config/site';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="contact" class="section">
+  <div class="container-page">
+    <SectionHeading eyebrow={t('contact.eyebrow')} title={t('contact.title')} intro={t('contact.intro')} />
+
+    <div class="mt-12 grid gap-5 lg:grid-cols-[1.15fr_1fr] lg:gap-6">
+      <div class="flex flex-col items-start rounded-2xl bg-ink p-7 text-bg md:p-10" data-reveal>
+        <span class="inline-flex size-14 items-center justify-center rounded-full bg-whatsapp text-white">
+          <Icon name="whatsapp" size={30} />
+        </span>
+        <h3 class="mt-6 text-2xl font-medium md:text-3xl">{t('contact.whatsappTitle')}</h3>
+        <p class="mt-3 max-w-md text-bg/80">{t('contact.whatsappText')}</p>
+        <p class="mt-5 text-xl tracking-wide">{SITE.phoneDisplay}</p>
+        <div class="mt-auto w-full pt-7 sm:w-auto">
+          <WhatsAppButton variant="light" class="w-full" />
+        </div>
+      </div>
+
+      <ul class="grid gap-5 sm:grid-cols-2 lg:gap-6" data-reveal>
+        <li>
+          <a href={mailtoUrl} class="contact-card group">
+            <Icon name="mail" class="text-taupe" />
+            <span class="eyebrow mt-4 block">{t('contact.email')}</span>
+            <span class="mt-1 block break-all font-medium group-hover:text-wood">{SITE.email}</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener"
+            aria-label={`${t('contact.instagram')}: @${SITE.instagram} (${t('a11y.newTab')})`}
+            class="contact-card group"
+          >
+            <Icon name="instagram" class="text-taupe" />
+            <span class="eyebrow mt-4 block">{t('contact.instagram')}</span>
+            <span class="mt-1 block break-all font-medium group-hover:text-wood">@{SITE.instagram}</span>
+          </a>
+        </li>
+        <li class="contact-card">
+          <Icon name="pin" class="text-taupe" />
+          <span class="eyebrow mt-4 block">{t('contact.locations')}</span>
+          {SITE.locations.map((location) => <span class="mt-1 block font-medium">{location}</span>)}
+        </li>
+        <li class="contact-card">
+          <Icon name="online" class="text-taupe" />
+          <span class="eyebrow mt-4 block">{t('contact.serviceArea')}</span>
+          <span class="mt-1 block font-medium">{SITE.serviceArea[lang]}</span>
+          <span class="mt-1 block text-sm text-muted-ink">{t('footer.serviceArea')}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

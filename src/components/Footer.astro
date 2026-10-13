@@ -1,0 +1,87 @@
+---
+import Band from './Band.astro';
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import { NAV, SITE, instagramUrl, mailtoUrl, waLink } from '../config/site';
+import { getLangFromUrl, localizedPath, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const home = localizedPath('/', lang);
+const onHome = Astro.url.pathname === home;
+const sectionHref = (id: string) => (onHome ? `#${id}` : `${home}#${id}`);
+const privacy = localizedPath('/gizlilik', lang);
+---
+
+<footer class="bg-surface">
+  <Band />
+  <div class="container-page grid gap-10 py-12 md:grid-cols-[1.2fr_1fr_1fr] md:py-16">
+    <div>
+      <a href={home} class="inline-block">
+        <Logo />
+        <span class="sr-only"> – {t('a11y.home')}</span>
+      </a>
+      <p class="mt-5 max-w-xs text-muted-ink">{t('footer.serviceArea')}</p>
+      <p class="mt-2 text-muted-ink">{SITE.locations.join(' · ')}</p>
+    </div>
+
+    <nav aria-label={t('a11y.footerNav')}>
+      <ul class="flex flex-col gap-1">
+        {
+          NAV.map((id) => (
+            <li>
+              <a href={sectionHref(id)} class="footer-link">
+                {t(`nav.${id}`)}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <ul class="flex flex-col gap-1">
+      <li>
+        <a
+          href={waLink(t('whatsapp.general'))}
+          target="_blank"
+          rel="noopener"
+          aria-label={`WhatsApp: ${SITE.phoneDisplay} (${t('a11y.newTab')})`}
+          class="footer-link"
+        >
+          <Icon name="whatsapp" size={18} />
+          {SITE.phoneDisplay}
+        </a>
+      </li>
+      <li>
+        <a href={mailtoUrl} class="footer-link break-all">
+          <Icon name="mail" size={18} class="shrink-0" />
+          {SITE.email}
+        </a>
+      </li>
+      <li>
+        <a
+          href={instagramUrl}
+          target="_blank"
+          rel="noopener"
+          aria-label={`${t('contact.instagram')}: @${SITE.instagram} (${t('a11y.newTab')})`}
+          class="footer-link break-all"
+        >
+          <Icon name="instagram" size={18} class="shrink-0" />
+          @{SITE.instagram}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="border-t border-ink/10">
+    <!-- rechter Innenabstand hält den schwebenden WhatsApp-Button von den Links frei -->
+    <div class="container-page flex flex-col gap-2 py-5 pr-24 text-sm text-muted-ink md:flex-row md:items-center md:justify-between">
+      <p>© {new Date().getFullYear()} {SITE.name}. {t('footer.rights')}</p>
+      <ul class="flex flex-wrap gap-x-5">
+        <li><a href={privacy} class="footer-link">{t('footer.privacy')}</a></li>
+        <li><a href={`${privacy}#imprint`} class="footer-link">{t('footer.imprint')}</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

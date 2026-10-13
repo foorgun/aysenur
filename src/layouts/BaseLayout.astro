@@ -2,20 +2,28 @@
 import '../styles/global.css';
 import { getImage } from 'astro:assets';
 import silkTexture from '../assets/brand/silk-texture.jpg';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import { SITE } from '../config/site';
 import { LOCALES, alternatePath, getLangFromUrl, useTranslations } from '../i18n/utils';
 
 interface Props {
   title?: string;
   description?: string;
-  /** Absoluter oder site-relativer Pfad zum OG-Bild (1200×630) */
+  /** Site-relativer Pfad zum OG-Bild (1200×630) */
   ogImage?: string;
+  /** Seiten ohne Gegenstück in der anderen Sprache (z. B. 404) */
+  noindex?: boolean;
 }
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { title = t('meta.title'), description = t('meta.description'), ogImage } = Astro.props;
+const {
+  title = t('meta.title'),
+  description = t('meta.description'),
+  ogImage = SITE.ogImage,
+  noindex = false,
+} = Astro.props;
 
 const absolute = (path: string) => new URL(path, Astro.site).href;
 const canonical = absolute(Astro.url.pathname);
@@ -32,6 +40,9 @@ const silk = await getImage({ src: silkTexture, format: 'webp', quality: 60 });
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#F4F1EC" />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -39,9 +50,19 @@ const silk = await getImage({ src: silkTexture, format: 'webp', quality: 60 });
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    {alternates.map((alt) => <link rel="alternate" hreflang={alt.locale} href={alt.href} />)}
-    <link rel="alternate" hreflang="x-default" href={xDefault} />
+    {
+      noindex ? (
+        <meta name="robots" content="noindex" />
+      ) : (
+        <>
+          <link rel="canonical" href={canonical} />
+          {alternates.map((alt) => (
+            <link rel="alternate" hreflang={alt.locale} href={alt.href} />
+          ))}
+          <link rel="alternate" hreflang="x-default" href={xDefault} />
+        </>
+      )
+    }
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.name} />
@@ -54,8 +75,11 @@ const silk = await getImage({ src: silkTexture, format: 'webp', quality: 60 });
         <meta property="og:locale:alternate" content={ogLocale[locale]} />
       ))
     }
-    {ogImage && <meta property="og:image" content={absolute(ogImage)} />}
-    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta property="og:image" content={absolute(ogImage)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t('meta.ogAlt')} />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <slot name="head" />
   </head>
@@ -67,5 +91,26 @@ const silk = await getImage({ src: silkTexture, format: 'webp', quality: 60 });
       {t('a11y.skipToContent')}
     </a>
     <slot />
+    <WhatsAppFloat />
+
+    <script>
+      // Dezentes Einblenden beim Scrollen (CSS greift nur ohne prefers-reduced-motion)
+      const targets = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            });
+          },
+          { rootMargin: '0px 0px -8% 0px' },
+        );
+        targets.forEach((target) => observer.observe(target));
+      } else {
+        targets.forEach((target) => target.classList.add('is-visible'));
+      }
+    </script>
   </body>
 </html>

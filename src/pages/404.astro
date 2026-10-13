@@ -1,0 +1,24 @@
+---
+// Statische 404-Seite (Türkisch als Standardsprache, mit Link zur englischen Startseite)
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+import { localizedPath, useTranslations } from '../i18n/utils';
+
+const t = useTranslations('tr');
+const en = useTranslations('en');
+---
+
+<BaseLayout title={`${t('notFound.title')} | ${SITE.name}`} noindex>
+  <Header solid />
+  <main id="main" class="container-page flex min-h-[70vh] flex-col items-center justify-center gap-5 pb-20 pt-32 text-center">
+    <h1 class="section-title">{t('notFound.title')}</h1>
+    <p class="max-w-md text-lg">{t('notFound.text')}</p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href={localizedPath('/', 'tr')} class="btn btn-primary">{t('cta.backHome')}</a>
+      <a href={localizedPath('/', 'en')} class="btn btn-ghost" lang="en" hreflang="en">{en('cta.backHome')}</a>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

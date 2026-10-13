@@ -64,23 +64,23 @@ Projektkontext und Regeln stehen in `CLAUDE.md`.
 
 ## Phase 3 – Komponenten (One-Pager)
 
-- [ ] `Header` – sticky, transparent über Hero → solid beim Scrollen, Burger-Menü mobil
-- [ ] `Hero` – **Split-Layout** (Bilder sind nur ~900–1300 px groß, siehe `CLAUDE.md` §9): links Script-Titel, Claim, Badge „Türkiye geneli & KKTC · Online", Primär-CTA WhatsApp, Sekundär „Projeleri Gör"; rechts `1-1-ev-tasarimi-a/01.jpg` auf Seiden-Textur
+- [x] `Header` – sticky, transparent über Hero → solid beim Scrollen, Burger-Menü mobil
+- [x] `Hero` – **Split-Layout** (Bilder sind nur ~900–1300 px groß, siehe `CLAUDE.md` §9): links Script-Titel, Claim, Badge „Türkiye geneli & KKTC · Online", Primär-CTA WhatsApp, Sekundär „Projeleri Gör"; rechts `1-1-ev-tasarimi-a/01.jpg` auf Seiden-Textur
   - TR-Claim-Vorschlag: „Yaşam alanınızı size özel, sade ve sıcak tasarımlarla dönüştürüyorum."
   - EN-Claim-Vorschlag: „Calm, warm interiors designed around the way you live."
-- [ ] `Services` – 6 Kacheln (Icon + Titel + 1 Satz), siehe Inhalte unten
-- [ ] `Packages` – Karten aus `content/packages`, jede mit Leistungsliste, Hinweisen, Preis/„Fiyat için yazın", eigenem WhatsApp-CTA (Paketname im Text)
-- [ ] `BeforeAfter` – Slider Render ↔ echtes Foto mit 4 Paaren: `dentaline-klinik`, `lobi`, `dis-cephe/on-*`, `dis-cephe/aci-*`. Bilder je Paar vorher auf gleiche Größe/Ausschnitt zuschneiden (sharp oder Pillow). Touch-fähig, Tastatur-bedienbar. Labels: „3D Render" / „Gerçek Uygulama" (EN: „3D Render" / „Built")
-- [ ] `Gallery` – Raster mit Filter (Konut / Ticari / Dış Cephe & Plan), Lightbox
-- [ ] `Process` – 4 Schritte
-- [ ] `About` – Foto, Kurzbio, Software-Badges, Ausbildung
-- [ ] `Contact` – große WhatsApp-Karte + E-Mail + Instagram + Standorte + Hinweis „Türkiye'nin her yerinden ve KKTC'den online çalışıyorum". **Kein Formular.**
-- [ ] `Footer` – Logo, Navigation, Social, Impressum/Datenschutz, ©
-- [ ] `WhatsAppFloat` – siehe `CLAUDE.md` §8
+- [x] `Services` – 6 Kacheln (Icon + Titel + 1 Satz), siehe Inhalte unten
+- [x] `Packages` – Karten aus `content/packages`, jede mit Leistungsliste, Hinweisen, Preis/„Fiyat için yazın", eigenem WhatsApp-CTA (Paketname im Text)
+- [x] `BeforeAfter` – Slider Render ↔ echtes Foto mit 4 Paaren: `dentaline-klinik`, `lobi`, `dis-cephe/on-*`, `dis-cephe/aci-*`. Bilder je Paar vorher auf gleiche Größe/Ausschnitt zuschneiden (sharp oder Pillow). Touch-fähig, Tastatur-bedienbar. Labels: „3D Render" / „Gerçek Uygulama" (EN: „3D Render" / „Built")
+- [x] `Gallery` – Raster mit Filter (Konut / Ticari / Dış Cephe & Plan), Lightbox
+- [x] `Process` – 4 Schritte
+- [x] `About` – Foto, Kurzbio, Software-Badges, Ausbildung
+- [x] `Contact` – große WhatsApp-Karte + E-Mail + Instagram + Standorte + Hinweis „Türkiye'nin her yerinden ve KKTC'den online çalışıyorum". **Kein Formular.**
+- [x] `Footer` – Logo, Navigation, Social, Impressum/Datenschutz, ©
+- [x] `WhatsAppFloat` – siehe `CLAUDE.md` §8
 
 ## Phase 4 – Projekte
 
-- [ ] Je Projekt eine Markdown-Datei in `content/projects/` mit Frontmatter:
+- [x] Je Projekt eine Markdown-Datei in `content/projects/` mit Frontmatter:
   ```yaml
   slug: steakhouse
   category: ticari        # konut | ticari | dis-cephe
@@ -92,7 +92,7 @@ Projektkontext und Regeln stehen in `CLAUDE.md`.
   images: [...]
   hasRealPhoto: false
   ```
-- [ ] Projektliste (aus dem Portfolio, alle selbst umgesetzt) – Bilder liegen in `assets-raw/<slug>/`:
+- [x] Projektliste (aus dem Portfolio, alle selbst umgesetzt) – Bilder liegen in `assets-raw/<slug>/`:
   | Slug | TR | EN | Kategorie | Bilder |
   |---|---|---|---|---|
   | 1-1-ev-tasarimi-a | 1+1 Ev Tasarımı (Ahşap & Kemer) | One-Bedroom Apartment – Arched Niches | konut | 01–03 |
@@ -104,8 +104,8 @@ Projektkontext und Regeln stehen in `CLAUDE.md`.
   | lobi | Lobi / Bekleme Alanı | Lobby / Lounge | ticari | render, gercek |
   | plan-gorsellestirme | Kat Planı Görselleştirme | Floor Plan Visualization | dis-cephe | 01, 02-zemin, 03 |
   | dis-cephe | Dış Cephe Tasarımı – Gerçek Residence | Façade Design – Gerçek Residence | dis-cephe | on-/aci- render + gercek |
-- [ ] `hasRealPhoto: true` für `dentaline-klinik`, `lobi`, `dis-cephe` → Badge „Hayata geçti" / „Built" auf der Kachel
-- [ ] Detailseiten TR (`/projeler/[slug]`) und EN (`/en/projects/[slug]`), mit „Benzer bir proje için yazın"-CTA
+- [x] `hasRealPhoto: true` für `dentaline-klinik`, `lobi`, `dis-cephe` → Badge „Hayata geçti" / „Built" auf der Kachel
+- [x] Detailseiten TR (`/projeler/[slug]`) und EN (`/en/projects/[slug]`), mit „Benzer bir proje için yazın"-CTA
 
 ## Phase 5 – Inhalte (Texte)
 
@@ -159,23 +159,23 @@ Gemeinsame Hinweise unter den Karten:
 
 ## Phase 6 – SEO, Recht, Performance
 
-- [ ] Titel/Description je Sprache, z. B. TR: „Ayşenur Yılmazkan | İç Mimar – Online İç Mimarlık, Türkiye & KKTC", EN: „Ayşenur Yılmazkan | Interior Designer – Türkiye & Northern Cyprus"
-- [ ] Keywords in Texten natürlich einbauen: „online iç mimar", „3D iç mekan tasarımı", „yerleşim planı", „Lefkoşa iç mimar", „İzmir iç mimar", „KKTC iç mimar"
-- [ ] JSON-LD `ProfessionalService` (Name, areaServed: Türkiye + Northern Cyprus, address-Ort Lefkoşa / İzmir ohne Straße; sameAs Instagram)
-- [ ] OG-Bild 1200×630 (Hero-Render mit Logo)
-- [ ] `robots.txt`, Sitemap mit hreflang
-- [ ] Gizlilik / KVKK-Aydınlatma & Impressum-Seite (Inhalte: TODO mit Kundin klären)
-- [ ] Bilder: max. 2400 px Breite in `src/assets`, `astro:assets` erzeugt Varianten
-- [ ] Lighthouse mobil prüfen (Ziele in `CLAUDE.md` §10)
+- [x] Titel/Description je Sprache, z. B. TR: „Ayşenur Yılmazkan | İç Mimar – Online İç Mimarlık, Türkiye & KKTC", EN: „Ayşenur Yılmazkan | Interior Designer – Türkiye & Northern Cyprus"
+- [x] Keywords in Texten natürlich einbauen: „online iç mimar", „3D iç mekan tasarımı", „yerleşim planı", „Lefkoşa iç mimar", „İzmir iç mimar", „KKTC iç mimar"
+- [x] JSON-LD `ProfessionalService` (Name, areaServed: Türkiye + Northern Cyprus, address-Ort Lefkoşa / İzmir ohne Straße; sameAs Instagram)
+- [x] OG-Bild 1200×630 (Hero-Render mit Logo)
+- [x] `robots.txt`, Sitemap mit hreflang
+- [x] Gizlilik / KVKK-Aydınlatma & Impressum-Seite (Inhalte: TODO mit Kundin klären)
+- [x] Bilder: max. 2400 px Breite in `src/assets`, `astro:assets` erzeugt Varianten
+- [x] Lighthouse mobil prüfen (Ziele in `CLAUDE.md` §10)
 
 ## Phase 7 – QA
 
-- [ ] Alle WhatsApp-Links auf echtem Handy testen (TR und EN, Paket-Texte korrekt vorausgefüllt)
-- [ ] Sprachumschalter auf jeder Seite
-- [ ] Türkische Zeichen & Großschreibung (İ/ı) korrekt
-- [ ] Mobile 360 px, Tablet, Desktop
-- [ ] Tastaturnavigation (Slider, Lightbox, Menü), Fokus sichtbar
-- [ ] Keine `TODO(content)` mehr im Build → sonst Liste an Furkan ausgeben
+- [ ] Alle WhatsApp-Links auf echtem Handy testen (TR und EN, Paket-Texte korrekt vorausgefüllt) – automatisch geprüft (Nummer, Text, Sprache in allen 23 Seiten); Test auf echtem Gerät steht noch aus
+- [x] Sprachumschalter auf jeder Seite
+- [x] Türkische Zeichen & Großschreibung (İ/ı) korrekt
+- [x] Mobile 360 px, Tablet, Desktop
+- [x] Tastaturnavigation (Slider, Lightbox, Menü), Fokus sichtbar
+- [x] Keine `TODO(content)` mehr im Build → sonst Liste an Furkan ausgeben – im Build keine; offene Punkte siehe Sammelliste unten
 
 ## Phase 8 – Deployment
 
@@ -192,5 +192,8 @@ Gemeinsame Hinweise unter den Karten:
 - [x] Bilder aus PDF extrahiert (`assets-raw.zip`) – keine Originale vorhanden
 - [ ] Domain kaufen (Empfehlung `aysenuryilmazkan.com`)
 - [ ] Paketpreise von Ayşenur freigeben lassen + KDV-Hinweis
-- [ ] Logo: korrigiertes „INTERIOR DESIGN" – bis dahin Logo als HTML/CSS nachbauen (Script-Wortmarke + Untertitel)
+- [ ] Logo: korrigiertes „INTERIOR DESIGN" – bis dahin Logo als HTML/CSS nachbauen (Script-Wortmarke + Untertitel) – HTML/CSS-Nachbau ist eingebaut, korrigierte Logodatei fehlt weiterhin
 - [ ] Projektdetails (Ort, Jahr, 1–2 Sätze) je Projekt
+- [ ] KDV-Hinweis unter den Paketen (`TODO(content)` in `src/components/Packages.astro`)
+- [ ] Gizlilik/KVKK- und Künye-Text von Ayşenur prüfen lassen (Standardtext; ggf. Postadresse und Hosting-Anbieter ergänzen)
+- [ ] Hero-Foto und Texte (Hakkımda, Paket-Taglines, Projektbeschreibungen) von Ayşenur freigeben lassen

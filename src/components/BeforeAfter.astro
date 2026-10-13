@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import CompareSlider from './CompareSlider.astro';
+import Icon from './Icon.astro';
+import SectionCta from './SectionCta.astro';
+import SectionHeading from './SectionHeading.astro';
+import { getLangFromUrl, localizedPath, pick, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const pairs = projects.flatMap((project) => project.data.compare.map((pair) => ({ ...pair, project })));
+---
+
+<section id="compare" class="section">
+  <div class="container-page">
+    <SectionHeading eyebrow={t('compare.eyebrow')} title={t('compare.title')} intro={t('compare.intro')} />
+
+    <ul class="mx-auto mt-12 grid max-w-[72rem] gap-x-8 gap-y-10 md:grid-cols-2">
+      {
+        pairs.map((pair) => (
+          <li data-reveal>
+            <figure>
+              <CompareSlider render={pair.render} real={pair.real} label={pick(pair.label, lang)} />
+              <figcaption class="mx-auto mt-3 flex items-center justify-between gap-4" style={`max-width: ${pair.render.width}px`}>
+                <span class="font-medium">{pick(pair.label, lang)}</span>
+                <a href={localizedPath(`/projeler/${pair.project.id}`, lang)} class="link-arrow shrink-0 text-sm">
+                  <span>{t('cta.viewProject')}</span>
+                  <span class="sr-only">: {pick(pair.project.data.title, lang)}</span>
+                  <Icon name="arrow" size={16} />
+                </a>
+              </figcaption>
+            </figure>
+          </li>
+        ))
+      }
+    </ul>
+
+    <SectionCta text={t('compare.cta')} />
+  </div>
+</section>

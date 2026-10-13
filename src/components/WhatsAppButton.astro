@@ -1,0 +1,27 @@
+---
+// WhatsApp-CTA mit vorausgefülltem Text. Ohne `message` wird der allgemeine Text der aktuellen Sprache verwendet.
+import Icon from './Icon.astro';
+import { waLink } from '../config/site';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+  message?: string;
+  label?: string;
+  variant?: 'primary' | 'ghost' | 'light';
+  class?: string;
+}
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+const { message = t('whatsapp.general'), label = t('cta.whatsapp'), variant = 'primary', class: className = '' } = Astro.props;
+---
+
+<a
+  href={waLink(message)}
+  target="_blank"
+  rel="noopener"
+  aria-label={`${label} (${t('a11y.newTab')})`}
+  class:list={['btn', `btn-${variant}`, className]}
+>
+  <Icon name="whatsapp" size={20} />
+  <span>{label}</span>
+</a>

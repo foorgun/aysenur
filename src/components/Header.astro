@@ -1,0 +1,123 @@
+---
+import Icon from './Icon.astro';
+import LangSwitch from './LangSwitch.astro';
+import Logo from './Logo.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+import { NAV } from '../config/site';
+import { getLangFromUrl, localizedPath, useTranslations } from '../i18n/utils';
+
+interface Props {
+  /** Auf Unterseiten ohne Hero: von Anfang an mit Hintergrund */
+  solid?: boolean;
+}
+
+const { solid = false } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const home = localizedPath('/', lang);
+const onHome = Astro.url.pathname === home;
+const sectionHref = (id: string) => (onHome ? `#${id}` : `${home}#${id}`);
+---
+
+<header
+  data-header
+  data-solid={solid ? '' : undefined}
+  data-scrolled={solid ? '' : undefined}
+  class="fixed inset-x-0 top-0 z-40 transition-[background-color,box-shadow] duration-300 data-[scrolled]:bg-bg/95 data-[scrolled]:shadow-[0_1px_0_rgb(43_40_38/0.08)] data-[scrolled]:backdrop-blur"
+>
+  <div class="container-page flex h-[4.5rem] items-center justify-between gap-4">
+    <a href={home} class="shrink-0">
+      <Logo />
+      <span class="sr-only"> – {t('a11y.home')}</span>
+    </a>
+
+    <nav aria-label={t('a11y.mainNav')} class="hidden lg:block">
+      <ul class="flex items-center gap-7 text-[0.95rem]">
+        {
+          NAV.map((id) => (
+            <li>
+              <a href={sectionHref(id)} class="nav-link">
+                {t(`nav.${id}`)}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2 md:gap-4">
+      <LangSwitch />
+      <WhatsAppButton label={t('cta.whatsappShort')} class="btn-sm hidden lg:inline-flex" />
+      <button
+        type="button"
+        data-menu-toggle
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        data-label-open={t('a11y.openMenu')}
+        data-label-close={t('a11y.closeMenu')}
+        aria-label={t('a11y.openMenu')}
+        class="group -mr-2 inline-flex size-11 items-center justify-center rounded-full lg:hidden"
+      >
+        <Icon name="menu" class="group-aria-expanded:hidden" />
+        <Icon name="close" class="hidden group-aria-expanded:block" />
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" hidden class="h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-ink/10 bg-bg lg:hidden">
+    <nav aria-label={t('a11y.mainNav')} class="container-page flex min-h-full flex-col py-6">
+      <ul class="flex flex-col">
+        {
+          NAV.map((id) => (
+            <li class="border-b border-ink/10">
+              <a href={sectionHref(id)} data-menu-link class="flex min-h-14 items-center text-xl">
+                {t(`nav.${id}`)}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-8">
+        <WhatsAppButton class="w-full" />
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.getElementById('mobile-menu');
+
+  if (header && toggle && menu) {
+    const solid = header.hasAttribute('data-solid');
+    const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
+
+    const update = () => {
+      header.toggleAttribute('data-scrolled', solid || isOpen() || window.scrollY > 8);
+    };
+
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', (open ? toggle.dataset.labelClose : toggle.dataset.labelOpen) ?? '');
+      menu.hidden = !open;
+      document.documentElement.classList.toggle('overflow-hidden', open);
+      update();
+    };
+
+    toggle.addEventListener('click', () => setOpen(!isOpen()));
+    menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && isOpen()) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
+      if (event.matches) setOpen(false);
+    });
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+</script>

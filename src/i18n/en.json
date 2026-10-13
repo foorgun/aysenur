@@ -1,14 +1,18 @@
 {
   "meta": {
     "title": "Ayşenur Yılmazkan | Interior Designer – Türkiye & Northern Cyprus",
-    "description": "Interior designer Ayşenur Yılmazkan: interior design, 3D visualization and space planning for homes and commercial spaces. Available online anywhere in Türkiye and Northern Cyprus."
+    "description": "Interior designer Ayşenur Yılmazkan: interior design, 3D visualization and space planning for homes and commercial spaces. Available online anywhere in Türkiye and Northern Cyprus.",
+    "projectTitle": "{name} | yilmazkan Interior Design",
+    "ogAlt": "yilmazkan Interior Design – interior designer Ayşenur Yılmazkan"
   },
   "a11y": {
     "skipToContent": "Skip to content",
     "mainNav": "Main menu",
+    "footerNav": "Footer menu",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "home": "Home"
+    "home": "Home",
+    "newTab": "opens in a new tab"
   },
   "lang": {
     "label": "Language",
@@ -20,6 +24,7 @@
   "nav": {
     "services": "Services",
     "packages": "Packages",
+    "compare": "Render → Reality",
     "projects": "Projects",
     "process": "Process",
     "about": "About",
@@ -27,76 +32,164 @@
   },
   "cta": {
     "whatsapp": "Message on WhatsApp",
+    "whatsappShort": "WhatsApp",
     "whatsappAria": "Message Ayşenur Yılmazkan on WhatsApp (opens in a new tab)",
     "viewProjects": "View Projects",
     "packageInfo": "Ask about this package",
     "getQuote": "Get a quote",
     "similarProject": "Ask about a similar project",
-    "instagram": "Follow on Instagram",
-    "email": "Send an email"
+    "viewProject": "View project",
+    "allProjects": "All projects",
+    "backHome": "Back to home"
   },
   "hero": {
-    "title": "Interiors made for you",
+    "eyebrow": "Ayşenur Yılmazkan · Interior Designer",
+    "title": "Calm, warm spaces – made for you.",
     "claim": "Calm, warm interiors designed around the way you live.",
-    "badge": "All of Türkiye & Northern Cyprus · Online"
+    "badge": "All of Türkiye & Northern Cyprus · Online",
+    "portraitAlt": "Portrait of interior designer Ayşenur Yılmazkan",
+    "renderAlt": "Design by Ayşenur Yılmazkan: living and dining area of a one-bedroom apartment with arched niches, 3D render"
   },
-  "sections": {
-    "services": {
-      "title": "Services",
-      "intro": "From a single room to a complete project – we plan exactly as much as you need."
-    },
-    "packages": {
-      "title": "Packages",
-      "intro": "Pick the package that fits, and we'll sort out the details on WhatsApp.",
-      "popular": "Most popular",
-      "askPrice": "Ask for a quote",
-      "priceFrom": "from {price}",
-      "note": "All online packages are available anywhere in Türkiye and Northern Cyprus. Prices are per room."
-    },
-    "beforeAfter": {
-      "title": "Render → Reality",
-      "intro": "The spaces I designed, on screen and as built – side by side.",
-      "render": "3D Render",
-      "real": "Built",
-      "sliderAria": "Compare the render with the built result"
-    },
-    "projects": {
-      "title": "Projects",
-      "intro": "A selection of homes and commercial spaces, all designed by me.",
-      "filterAll": "All",
-      "filterResidential": "Residential",
-      "filterCommercial": "Commercial",
-      "filterExterior": "Façade & Plans",
-      "builtBadge": "Built"
-    },
-    "process": {
-      "title": "Process",
-      "intro": "Four steps from your first message to delivery."
-    },
-    "about": {
-      "title": "About",
-      "education": "Education",
-      "software": "Software I work with"
-    },
-    "contact": {
-      "title": "Contact",
-      "intro": "I work online with clients anywhere in Türkiye and Northern Cyprus.",
-      "whatsapp": "WhatsApp",
-      "email": "Email",
-      "instagram": "Instagram",
-      "locations": "Based in"
+  "services": {
+    "title": "Services",
+    "eyebrow": "What I do",
+    "intro": "From a single room to a complete project – take as much interior design support as you need, in person or online.",
+    "cta": "Not sure which service fits? Send a message and we'll figure it out together.",
+    "items": {
+      "interior": {
+        "title": "Interior Design",
+        "text": "Colours, materials, furniture and lighting designed as one coherent whole – around your lifestyle, your budget and the room's real dimensions."
+      },
+      "render": {
+        "title": "3D Visualization & Rendering",
+        "text": "Photorealistic 3D renders show you the finished space before any work begins, so every decision is made with confidence."
+      },
+      "plan": {
+        "title": "2D Space Planning",
+        "text": "A measured layout fixes the position and size of every piece of furniture, so you shop knowing exactly what fits."
+      },
+      "commercial": {
+        "title": "Commercial Interiors",
+        "text": "Restaurants, clinics and offices that reflect your brand and are planned around how guests and staff actually move."
+      },
+      "exterior": {
+        "title": "Exterior & Façade Design",
+        "text": "Façade design for residential and commercial buildings, plus floor plan visuals that support the sales process."
+      },
+      "online": {
+        "title": "Online 1:1 Consultation",
+        "text": "A one-hour video call to work through your questions with an interior designer – wherever you are."
+      }
     }
+  },
+  "packages": {
+    "title": "Packages",
+    "eyebrow": "Pick what fits",
+    "intro": "Five packages, from a short consultation to a complete home design. We'll settle the details together on WhatsApp.",
+    "popular": "Most popular",
+    "askPrice": "Ask for a quote",
+    "priceFrom": "from {price}",
+    "includes": "What's included",
+    "note": "All online packages are available anywhere in Türkiye and Northern Cyprus. Prices are per room."
+  },
+  "compare": {
+    "title": "Render → Reality",
+    "eyebrow": "From design to built",
+    "intro": "What you approve on screen should be what you walk into. Drag the line to compare the 3D render with the finished space.",
+    "render": "3D Render",
+    "real": "Built",
+    "sliderAria": "{name}: slider comparing the render with the built result",
+    "cta": "Your space can start on screen and end up real, too."
+  },
+  "projects": {
+    "title": "Projects",
+    "eyebrow": "Selected work",
+    "intro": "Homes, a restaurant, a clinic, a façade – a selection of projects, all designed by me.",
+    "filterLabel": "Filter projects by category",
+    "filterAll": "All",
+    "builtBadge": "Built",
+    "categories": {
+      "konut": "Residential",
+      "ticari": "Commercial",
+      "dis-cephe": "Façade & Plans"
+    },
+    "cta": "Seen something you like? I can design something similar for you.",
+    "detailCtaTitle": "Planning something similar?",
+    "detailCtaText": "Send me your measurements and ideas on WhatsApp and we'll find the right package together.",
+    "gallery": "Images",
+    "more": "More projects",
+    "imageCount": "{count} images"
+  },
+  "lightbox": {
+    "open": "Enlarge image",
+    "close": "Close",
+    "prev": "Previous image",
+    "next": "Next image",
+    "label": "Image gallery"
+  },
+  "process": {
+    "title": "Process",
+    "eyebrow": "How we work",
+    "intro": "Four clear steps from your first message to delivery.",
+    "cta": "It starts with a short message.",
+    "steps": {
+      "1": {
+        "title": "Discovery call",
+        "text": "You message me on WhatsApp; we talk through your space, your expectations and your budget, and choose the right package."
+      },
+      "2": {
+        "title": "Measurements & brief",
+        "text": "You share measurements, photos and examples you like. For online projects I guide you through measuring the space."
+      },
+      "3": {
+        "title": "Concept, plan & 3D design",
+        "text": "I prepare the layout and the 3D design, and we refine it together through the included revisions."
+      },
+      "4": {
+        "title": "Delivery & implementation support",
+        "text": "You receive the renders, drawings and product lists – and I stay available for questions while the work is carried out."
+      }
+    }
+  },
+  "about": {
+    "title": "About",
+    "eyebrow": "Interior designer Ayşenur Yılmazkan",
+    "p1": "Hi, I'm Ayşenur. I'm a freelance interior designer, creating homes and commercial spaces as yilmazkan Interior Design.",
+    "p2": "I'm based in Lefkoşa (Nicosia) and İzmir, and take on projects online from anywhere in Türkiye and Northern Cyprus. I'm drawn to clean lines, warm tones and natural textures – and every design starts with the person who will live in the space.",
+    "p3": "Every project on this site is my own work. For some of them you can see the render and the built result side by side.",
+    "portraitAlt": "Black-and-white portrait of Ayşenur Yılmazkan",
+    "education": "Education",
+    "educationItems": {
+      "1": "Cyprus International University – Interior Architecture",
+      "2": "İzmir Kâtip Çelebi University – Dental Technology"
+    },
+    "software": "Software I work with",
+    "cta": "Tell me about your project"
+  },
+  "contact": {
+    "title": "Contact",
+    "eyebrow": "Let's get started",
+    "intro": "I work online with clients anywhere in Türkiye and Northern Cyprus. WhatsApp is the quickest way – a few sentences about your space are enough.",
+    "whatsappTitle": "Message me on WhatsApp",
+    "whatsappText": "Tell me about your space, its measurements and what you have in mind – we'll plan the rest together.",
+    "email": "Email",
+    "instagram": "Instagram",
+    "locations": "Based in",
+    "serviceArea": "Service area"
   },
   "whatsapp": {
     "general": "Hello Ayşenur, I found you through your website and would like to know more about your interior design services.",
-    "package": "Hello, I'd like to know more about {name}.",
     "project": "Hello Ayşenur, I saw \"{name}\" on your website and would like to talk about a similar project.",
-    "floatAria": "Message on WhatsApp"
+    "floatAria": "Message on WhatsApp (opens in a new tab)"
   },
   "footer": {
     "serviceArea": "Online service anywhere in Türkiye and Northern Cyprus",
     "privacy": "Privacy",
     "imprint": "Legal notice",
     "rights": "All rights reserved."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you're looking for may have moved or never existed."
   }
 }

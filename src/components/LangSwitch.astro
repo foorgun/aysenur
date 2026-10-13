@@ -19,7 +19,6 @@ const t = useTranslations(current);
           href={alternatePath(Astro.url.pathname, locale)}
           hreflang={locale}
           lang={locale}
-          aria-label={t(`lang.${locale}Name`)}
           aria-current={locale === current ? 'true' : undefined}
           data-lang-link
           class:list={[
@@ -28,6 +27,7 @@ const t = useTranslations(current);
           ]}
         >
           {t(`lang.${locale}`)}
+          <span class="sr-only"> – {t(`lang.${locale}Name`)}</span>
         </a>
       </>
     ))

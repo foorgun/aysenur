@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+import SectionCta from './SectionCta.astro';
+import SectionHeading from './SectionHeading.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const categories = ['konut', 'ticari', 'dis-cephe'] as const;
+---
+
+<section id="projects" class="section bg-surface/60">
+  <div class="container-page">
+    <SectionHeading eyebrow={t('projects.eyebrow')} title={t('projects.title')} intro={t('projects.intro')} />
+
+    <div role="group" aria-label={t('projects.filterLabel')} class="mt-8 flex flex-wrap justify-center gap-2" data-filter>
+      <button type="button" class="chip" data-filter-value="all" aria-pressed="true">{t('projects.filterAll')}</button>
+      {
+        categories.map((category) => (
+          <button type="button" class="chip" data-filter-value={category} aria-pressed="false">
+            {t(`projects.categories.${category}`)}
+          </button>
+        ))
+      }
+    </div>
+
+    <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6" data-filter-list>
+      {
+        projects.map((project) => (
+          <li data-category={project.data.category}>
+            <ProjectCard project={project} />
+          </li>
+        ))
+      }
+    </ul>
+
+    <SectionCta text={t('projects.cta')} />
+  </div>
+</section>
+
+<script>
+  const group = document.querySelector<HTMLElement>('[data-filter]');
+  const items = document.querySelectorAll<HTMLElement>('[data-filter-list] > [data-category]');
+
+  group?.querySelectorAll<HTMLButtonElement>('button[data-filter-value]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const value = button.dataset.filterValue;
+      group.querySelectorAll('button').forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
+      items.forEach((item) => {
+        item.hidden = value !== 'all' && item.dataset.category !== value;
+      });
+    });
+  });
+</script>

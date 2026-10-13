@@ -26,3 +26,6 @@ pnpm-debug.log*
 # raw source images extracted from the portfolio PDF
 /assets-raw
 /assets-raw.zip
+
+# Playwright screenshots (QA)
+/screenshots

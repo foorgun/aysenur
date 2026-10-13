@@ -1,43 +1,62 @@
 ---
-// Gemeinsamer Inhalt der Startseite für TR (/) und EN (/en/). Die Sektionen folgen in Phase 3.
+// Gemeinsamer Inhalt der Startseite für TR (/) und EN (/en/)
 import BaseLayout from '../layouts/BaseLayout.astro';
+import About from './About.astro';
 import Band from './Band.astro';
-import LangSwitch from './LangSwitch.astro';
-import Logo from './Logo.astro';
-import { waLink } from '../config/site';
+import BeforeAfter from './BeforeAfter.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import Gallery from './Gallery.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import Packages from './Packages.astro';
+import Process from './Process.astro';
+import Services from './Services.astro';
+import { SITE, instagramUrl } from '../config/site';
 import { getLangFromUrl, localizedPath, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const url = new URL(localizedPath('/', lang), Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${new URL('/', Astro.site).href}#business`,
+  name: SITE.name,
+  description: t('meta.description'),
+  url,
+  inLanguage: lang,
+  image: new URL(SITE.ogImage, Astro.site).href,
+  telephone: `+${SITE.whatsapp}`,
+  email: SITE.email,
+  founder: { '@type': 'Person', name: SITE.owner, jobTitle: lang === 'tr' ? 'İç Mimar' : 'Interior Designer' },
+  areaServed: [
+    { '@type': 'Country', name: 'Türkiye' },
+    { '@type': 'Place', name: lang === 'tr' ? 'Kuzey Kıbrıs Türk Cumhuriyeti (KKTC)' : 'Northern Cyprus' },
+  ],
+  address: [
+    { '@type': 'PostalAddress', addressLocality: 'Lefkoşa', addressRegion: lang === 'tr' ? 'KKTC' : 'Northern Cyprus' },
+    { '@type': 'PostalAddress', addressLocality: 'Bornova', addressRegion: 'İzmir', addressCountry: 'TR' },
+  ],
+  sameAs: [instagramUrl],
+};
 ---
 
 <BaseLayout>
-  <header class="container-page flex items-center justify-between py-4">
-    <a href={localizedPath('/', lang)} aria-label={t('a11y.home')}>
-      <Logo />
-    </a>
-    <LangSwitch />
-  </header>
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify(jsonLd)} />
 
+  <Header />
   <main id="main">
-    <section class="bg-silk">
-      <div class="container-page py-20 md:py-28">
-        <p class="eyebrow">{t('hero.badge')}</p>
-        <h1 class="display-script mt-4">{t('hero.title')}</h1>
-        <p class="mt-6 max-w-xl text-lg">{t('hero.claim')}</p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a
-            class="btn btn-primary"
-            href={waLink(t('whatsapp.general'))}
-            target="_blank"
-            rel="noopener"
-            aria-label={t('cta.whatsappAria')}
-          >
-            {t('cta.whatsapp')}
-          </a>
-        </div>
-      </div>
-    </section>
+    <Hero />
+    <Services />
+    <Packages />
+    <BeforeAfter />
+    <Gallery />
+    <Process />
+    <About />
     <Band />
+    <Contact />
   </main>
+  <Footer />
 </BaseLayout>

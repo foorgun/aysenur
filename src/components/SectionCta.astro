@@ -1,0 +1,17 @@
+---
+// Abschluss jeder Sektion: kurzer Satz + WhatsApp-CTA (CLAUDE.md §3)
+import WhatsAppButton from './WhatsAppButton.astro';
+
+interface Props {
+  text: string;
+  message?: string;
+  label?: string;
+}
+
+const { text, message, label } = Astro.props;
+---
+
+<div class="mt-12 flex flex-col items-center gap-4 text-center md:mt-16" data-reveal>
+  <p class="max-w-xl text-lg">{text}</p>
+  <WhatsAppButton message={message} label={label} />
+</div>

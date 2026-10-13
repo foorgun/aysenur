@@ -1,0 +1,31 @@
+---
+import Icon from './Icon.astro';
+import SectionCta from './SectionCta.astro';
+import SectionHeading from './SectionHeading.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+const items = ['interior', 'render', 'plan', 'commercial', 'exterior', 'online'] as const;
+---
+
+<section id="services" class="section">
+  <div class="container-page">
+    <SectionHeading eyebrow={t('services.eyebrow')} title={t('services.title')} intro={t('services.intro')} />
+
+    <ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      {
+        items.map((id) => (
+          <li class="rounded-2xl bg-surface p-6 md:p-8" data-reveal>
+            <span class="inline-flex size-12 items-center justify-center rounded-full bg-bg text-taupe">
+              <Icon name={id} size={26} />
+            </span>
+            <h3 class="mt-5 text-xl font-medium">{t(`services.items.${id}.title`)}</h3>
+            <p class="mt-2 text-muted-ink">{t(`services.items.${id}.text`)}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <SectionCta text={t('services.cta')} />
+  </div>
+</section>
