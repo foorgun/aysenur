@@ -1,6 +1,6 @@
 ---
 # TODO(content): location, year
-order: 4
+order: 10
 category: ticari
 title: { tr: "Steakhouse Tasarımı", en: "Steakhouse Design" }
 summary:

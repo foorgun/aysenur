@@ -1,6 +1,6 @@
 ---
 # TODO(content): location, year
-order: 9
+order: 15
 category: dis-cephe
 title: { tr: "Dış Cephe Tasarımı – Gerçek Residence", en: "Façade Design – Gerçek Residence" }
 summary:

@@ -1,6 +1,6 @@
 ---
 # TODO(content): location, year
-order: 5
+order: 13
 category: konut
 title: { tr: "Banyo Tasarımı", en: "Bathroom Design" }
 summary:

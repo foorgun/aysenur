@@ -1,6 +1,6 @@
 ---
 # TODO(content): location, year
-order: 3
+order: 12
 category: konut
 title: { tr: "1+0 Stüdyo Daire", en: "Studio Apartment" }
 summary:

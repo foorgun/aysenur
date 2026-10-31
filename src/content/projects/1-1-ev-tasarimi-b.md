@@ -1,6 +1,6 @@
 ---
 # TODO(content): location, year
-order: 2
+order: 7
 category: konut
 title: { tr: "1+1 Ev Tasarımı – Balıksırtı Parke", en: "One-Bedroom Apartment – Herringbone" }
 summary:

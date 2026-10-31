@@ -1,6 +1,6 @@
 ---
 # TODO(content): location, year
-order: 1
+order: 3
 category: konut
 title: { tr: "1+1 Ev Tasarımı – Ahşap & Kemer", en: "One-Bedroom Apartment – Arched Niches" }
 summary:

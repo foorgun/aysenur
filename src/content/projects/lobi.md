@@ -1,6 +1,6 @@
 ---
 # TODO(content): location, year
-order: 7
+order: 9
 category: ticari
 title: { tr: "Lobi / Bekleme Alanı", en: "Lobby / Lounge" }
 summary:

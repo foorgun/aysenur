@@ -1,6 +1,6 @@
 ---
 # TODO(content): location, year
-order: 6
+order: 5
 category: ticari
 title: { tr: "Diş Kliniği – Dentaline", en: "Dental Clinic – Dentaline" }
 summary:

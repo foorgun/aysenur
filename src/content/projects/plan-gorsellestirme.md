@@ -1,6 +1,6 @@
 ---
 # TODO(content): location, year
-order: 8
+order: 14
 category: dis-cephe
 title: { tr: "Kat Planı Görselleştirme", en: "Floor Plan Visualization" }
 summary:
