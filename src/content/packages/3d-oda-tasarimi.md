@@ -18,7 +18,7 @@ features:
     - "4 photorealistic renders"
     - "Colour, material and furniture list with shopping links"
     - "2 revisions"
-price: 12000
+price: 15000
 priceFrom: true
 showPrice: true
 highlight: true

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Ayşenur Yılmazkan | İç Mimar – Online İç Mimarlık, Türkiye & KKTC",
-    "description": "İç mimar Ayşenur Yılmazkan: konut ve ticari mekânlar için iç mekan tasarımı, 3D görselleştirme ve yerleşim planı. Türkiye'nin her yerinden ve KKTC'den online hizmet.",
+    "title": "Ayşenur Yılmazkan | İç Mimar – Kıbrıs, İzmir & Online",
+    "description": "İç mimar Ayşenur Yılmazkan: konut ve ticari mekânlar için iç mekan tasarımı, 3D görselleştirme ve yerleşim planı. Türkiye, KKTC ve yurt dışına online hizmet.",
     "projectTitle": "{name} | yilmazkan Interior Design",
     "ogAlt": "yilmazkan Interior Design – iç mimar Ayşenur Yılmazkan"
   },
@@ -46,7 +46,7 @@
     "eyebrow": "Ayşenur Yılmazkan · İç Mimar",
     "title": "Sade, sıcak ve size ait.",
     "claim": "Yaşam alanınızı size özel, sade ve sıcak tasarımlarla dönüştürüyorum.",
-    "badge": "Türkiye geneli & KKTC · Online",
+    "badge": "Türkiye, KKTC & yurt dışı · Online",
     "portraitAlt": "İç mimar Ayşenur Yılmazkan'ın portresi",
     "renderAlt": "Ayşenur Yılmazkan tasarımı: kemerli nişleri olan 1+1 dairenin salon ve yemek alanı, 3D render"
   },
@@ -90,7 +90,7 @@
     "askPrice": "Fiyat için yazın",
     "priceFrom": "{price}'den başlayan",
     "includes": "Pakete dahil",
-    "note": "Tüm online paketler Türkiye'nin her yerinden ve KKTC'den alınabilir. Fiyatlar tek oda içindir."
+    "note": "Tüm online paketler bulunduğunuz yerden bağımsızdır: Türkiye, KKTC ya da yurt dışı. Fiyatlar tek oda içindir."
   },
   "compare": {
     "title": "Render → Gerçek",
@@ -155,13 +155,13 @@
     "title": "Hakkımda",
     "eyebrow": "İç mimar Ayşenur Yılmazkan",
     "p1": "Merhaba, ben Ayşenur. Serbest çalışan bir iç mimarım ve yilmazkan Interior Design çatısı altında konutlar ile ticari mekânlar tasarlıyorum.",
-    "p2": "Lefkoşa ve İzmir merkezli çalışıyorum; online paketlerle Türkiye'nin her yerinden ve KKTC'den projeler alıyorum. Sade çizgileri, sıcak tonları ve doğal dokuları seviyorum; her tasarımı, o mekânda yaşayacak kişiye göre kuruyorum.",
+    "p2": "Kıbrıs ve İzmir merkezli çalışıyorum; online paketlerle Türkiye'nin her yerinden, KKTC'den ve yurt dışından projeler alıyorum. Sade çizgileri, sıcak tonları ve doğal dokuları seviyorum; her tasarımı, o mekânda yaşayacak kişiye göre kuruyorum.",
     "p3": "Bu sitedeki tüm projeler bana ait. Bir kısmını, render ile gerçek uygulamayı yan yana görebileceğiniz şekilde paylaştım.",
     "portraitAlt": "Ayşenur Yılmazkan'ın siyah beyaz portre fotoğrafı",
     "education": "Eğitim",
     "educationItems": {
       "1": "Uluslararası Kıbrıs Üniversitesi – İç Mimarlık",
-      "2": "İzmir Kâtip Çelebi Üniversitesi – Diş Teknolojisi"
+      "2": "İzmir Kâtip Çelebi Üniversitesi – Dental Asistan"
     },
     "software": "Kullandığım programlar",
     "cta": "Projenizi bana anlatın"
@@ -169,7 +169,7 @@
   "contact": {
     "title": "İletişim",
     "eyebrow": "Birlikte başlayalım",
-    "intro": "Türkiye'nin her yerinden ve KKTC'den online çalışıyorum. En hızlı yol WhatsApp: mekânınızı birkaç cümleyle anlatmanız yeterli.",
+    "intro": "Türkiye'nin her yerinden, KKTC'den ve yurt dışından online çalışıyorum. En hızlı yol WhatsApp: mekânınızı birkaç cümleyle anlatmanız yeterli.",
     "whatsappTitle": "WhatsApp'tan yazın",
     "whatsappText": "Mekânınızı, ölçüleri ve aklınızdakileri yazın; gerisini birlikte planlarız.",
     "email": "E-posta",
@@ -183,7 +183,7 @@
     "floatAria": "WhatsApp'tan yazın (yeni sekmede açılır)"
   },
   "footer": {
-    "serviceArea": "Türkiye'nin her yerinden ve KKTC'den online hizmet",
+    "serviceArea": "Türkiye, KKTC ve yurt dışına online hizmet",
     "privacy": "Gizlilik & KVKK",
     "imprint": "Künye",
     "rights": "Tüm hakları saklıdır."

@@ -17,11 +17,11 @@ Zweisprachige (Türkisch / Englisch) Portfolio- und Landingpage für die freiber
 | Name | Ayşenur Yılmazkan |
 | Marke | yilmazkan – Interior Design |
 | Beruf | Freiberufliche Innenarchitektin (İç Mimar) |
-| Standorte | Lefkoşa / KKTC (Nordzypern) · Bornova / İzmir – Service für **ganz Türkei + KKTC** (vor Ort oder online) |
+| Standorte | Lefkoşa / KKTC (Nordzypern) · Bornova / İzmir – im Fließtext „Kıbrıs ve İzmir“ (ihr Wunsch). Service für **Türkei + KKTC + Ausland/internationale Kund:innen** (vor Ort oder online) |
 | Telefon / WhatsApp | 0548 829 95 49 → international `+90 548 829 95 49` → `https://wa.me/905488299549` (**bestätigt**) |
 | E-Mail | a.yilmazkan35@gmail.com |
 | Instagram | @designer.ayilmazkan → https://instagram.com/designer.ayilmazkan |
-| Ausbildung | Cyprus International University – Interior Architecture; İzmir Kâtip Çelebi Üniversitesi – Dental Technology |
+| Ausbildung | Cyprus International University – Interior Architecture; İzmir Kâtip Çelebi Üniversitesi – Dental Asistan (EN: Dental Assistant; von ihr korrigiert, nicht „Diş Teknolojisi“) |
 | Software | AutoCAD, SketchUp, 3ds Max, Corona Renderer, Enscape |
 
 **Wichtig:** Im Logo/PDF steht „INTERIOR DESING" – das ist ein Tippfehler. Auf der Website IMMER **„INTERIOR DESIGN"** verwenden.
@@ -29,7 +29,7 @@ Das Logo nicht als Bild mit Tippfehler einbinden – entweder korrigierte Logoda
 
 ## 3. Zielgruppe & Ziel
 
-- Privatpersonen in **ganz Türkei und KKTC**, die eine Wohnung einrichten/umgestalten (1+0, 1+1, 2+1 …). Online-Pakete (Beratung, 2D-Plan, 3D-Design) funktionieren ortsunabhängig → das auf der Seite klar kommunizieren („Türkiye'nin her yerinden ve KKTC'den online hizmet")
+- Privatpersonen in **ganz Türkei, KKTC und im Ausland**, die eine Wohnung einrichten/umgestalten (1+0, 1+1, 2+1 …). Online-Pakete (Beratung, 2D-Plan, 3D-Design) funktionieren ortsunabhängig → das klar kommunizieren. **Nie so formulieren, als arbeite sie nur für die Türkei** – v. a. die EN-Version richtet sich auch an internationale Kund:innen (Kundinnen-Feedback 29.10.2026)
 - Kleine Gewerbe: Restaurants, Kliniken, Praxen, Bauträger (Fassade, Grundriss-Visualisierung)
 - **Primäre Conversion:** WhatsApp-Chat öffnen. Sekundär: Instagram, E-Mail. **Kein Kontaktformular** (bewusste Entscheidung).
 - Jede Sektion endet in einem klaren CTA zu WhatsApp.
@@ -76,8 +76,8 @@ Stil: ruhig, warm, minimalistisch, „Japandi/Warm Minimal" – Seide/Leinen-Tex
 1. **Header** – Logo, Navigation (Hizmetler / Paketler / Projeler / Hakkımda / İletişim), TR|EN-Switch
 2. **Hero** – großes Render (z. B. 1+1-Wohnzimmer), Script-Titel, kurzer Claim, CTA „WhatsApp'tan Yazın"
 3. **Hizmetler / Services** – Kacheln: İç Mekan Tasarımı, 3D Görselleştirme, Yerleşim Planı, Ticari Mekan, Dış Cephe, Online Danışmanlık
-4. **Paketler / Packages** – Paketkarten mit Leistungen, Hinweisen und Preis (oder „Fiyat için yazın"), jeweils eigener WhatsApp-CTA mit vorausgefülltem Text
-5. **Render → Gerçek / Render → Reality** – Vorher/Nachher-Slider (Render vs. echtes Foto) – stärkstes Vertrauenselement
+4. **Render → Gerçek / Render → Reality** – Vorher/Nachher-Slider (Render vs. echtes Foto) – stärkstes Vertrauenselement, steht auf Kundinnenwunsch **über** den Paketen
+5. **Paketler / Packages** – Paketkarten mit Leistungen, Hinweisen und Preis (oder „Fiyat için yazın"), jeweils eigener WhatsApp-CTA mit vorausgefülltem Text
 6. **Projeler / Projects** – Galerie-Raster mit Filter (Konut / Ticari / Dış Cephe), Klick → Detailseite oder Lightbox
 7. **Süreç / Process** – 3–4 Schritte (Görüşme → Konsept → 3D/Plan → Teslim)
 8. **Hakkımda / About** – Foto, kurze Vita, Software, Ausbildung (keine Telefonnummern von Referenzen veröffentlichen!)
@@ -103,9 +103,9 @@ Stil: ruhig, warm, minimalistisch, „Japandi/Warm Minimal" – Seide/Leinen-Tex
   - Kein vollflächiges Fullscreen-Hero-Bild auf Desktop. Stattdessen **Split-Hero** (Text links, Bild rechts, max. ~700 px breit) oder Bild mit Seiden-Textur-Rahmen
   - Galerie-Kacheln und Lightbox max. in Originalgröße anzeigen, nie hochskalieren (`widths` nicht größer als Originalbreite)
   - Die Seiden-Textur `brand/silk-texture.jpg` als Hintergrund nutzen, wo große Flächen nötig sind
-- Projekt-Slugs: `1-1-ev-tasarimi-a`, `1-1-ev-tasarimi-b`, `1-0-studyo`, `steakhouse`, `banyo`, `dentaline-klinik`, `lobi`, `plan-gorsellestirme`, `dis-cephe`
+- Projekt-Slugs: `yatak-odasi-bordo`, `salon-ceviz`, `daire-dogal-tonlar`, `resepsiyon-lobi`, `yatak-odasi-ahsap`, `misafir-wc` (hochaufgelöste Renders, Okt. 2026 von ihr nachgeliefert), `1-1-ev-tasarimi-a`, `1-1-ev-tasarimi-b`, `1-0-studyo`, `steakhouse`, `banyo`, `dentaline-klinik`, `lobi`, `plan-gorsellestirme`, `dis-cephe`
 - Render↔Foto-Paare für den Vorher/Nachher-Slider: `dentaline-klinik/render|gercek`, `lobi/render|gercek`, `dis-cephe/on-render|on-gercek`, `dis-cephe/aci-render|aci-gercek`
-- Porträt: `brand/portrait.jpg` (schwarz-weiß, 386×488 → klein darstellen, z. B. rund 200–240 px)
+- Porträt: `brand/portrait.jpg` (schwarz-weiß, 386×488 → klein darstellen, z. B. rund 200–240 px). Zusätzlich `brand/portrait-desk.jpg` / `portrait-standing.jpg` – im Hakkımda-Bereich als transparenter Hintergrund (`EdgeArt`)
 - Jedes Bild braucht einen sinnvollen `alt`-Text in beiden Sprachen
 - Texte für Pakete: **Struktur** darf sich an Vorlagen orientieren, aber **Formulierungen müssen eigene sein** – keine Texte anderer Architekt:innen 1:1 übernehmen
 - Alle Projekte im Portfolio sind **von ihr selbst umgesetzt (bestätigt)** – inkl. Dentaline und der Fassade. Render↔Foto-Vergleiche prominent zeigen.

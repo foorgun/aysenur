@@ -34,6 +34,8 @@ const jsonLd = {
   areaServed: [
     { '@type': 'Country', name: 'Türkiye' },
     { '@type': 'Place', name: lang === 'tr' ? 'Kuzey Kıbrıs Türk Cumhuriyeti (KKTC)' : 'Northern Cyprus' },
+    // Online-Pakete auch für Kund:innen im Ausland
+    lang === 'tr' ? 'Dünya geneli (online)' : 'Worldwide (online)',
   ],
   address: [
     { '@type': 'PostalAddress', addressLocality: 'Lefkoşa', addressRegion: lang === 'tr' ? 'KKTC' : 'Northern Cyprus' },
@@ -50,8 +52,8 @@ const jsonLd = {
   <main id="main">
     <Hero />
     <Services />
-    <Packages />
     <BeforeAfter />
+    <Packages />
     <Gallery />
     <Process />
     <About />

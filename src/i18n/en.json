@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Ayşenur Yılmazkan | Interior Designer – Türkiye & Northern Cyprus",
-    "description": "Interior designer Ayşenur Yılmazkan: interior design, 3D visualization and space planning for homes and commercial spaces. Available online anywhere in Türkiye and Northern Cyprus.",
+    "title": "Ayşenur Yılmazkan | Interior Designer – Cyprus, İzmir & Online Worldwide",
+    "description": "Interior designer Ayşenur Yılmazkan: interior design, 3D visualization and space planning for homes and commercial spaces. Based in Cyprus and İzmir, working online with clients worldwide.",
     "projectTitle": "{name} | yilmazkan Interior Design",
     "ogAlt": "yilmazkan Interior Design – interior designer Ayşenur Yılmazkan"
   },
@@ -46,7 +46,7 @@
     "eyebrow": "Ayşenur Yılmazkan · Interior Designer",
     "title": "Calm, warm spaces – made for you.",
     "claim": "Calm, warm interiors designed around the way you live.",
-    "badge": "All of Türkiye & Northern Cyprus · Online",
+    "badge": "Cyprus · İzmir · Online worldwide",
     "portraitAlt": "Portrait of interior designer Ayşenur Yılmazkan",
     "renderAlt": "Design by Ayşenur Yılmazkan: living and dining area of a one-bedroom apartment with arched niches, 3D render"
   },
@@ -90,7 +90,7 @@
     "askPrice": "Ask for a quote",
     "priceFrom": "from {price}",
     "includes": "What's included",
-    "note": "All online packages are available anywhere in Türkiye and Northern Cyprus. Prices are per room."
+    "note": "All online packages work wherever you are – in Türkiye, Cyprus or anywhere else in the world. Prices are per room."
   },
   "compare": {
     "title": "Render → Reality",
@@ -155,13 +155,13 @@
     "title": "About",
     "eyebrow": "Interior designer Ayşenur Yılmazkan",
     "p1": "Hi, I'm Ayşenur. I'm a freelance interior designer, creating homes and commercial spaces as yilmazkan Interior Design.",
-    "p2": "I'm based in Lefkoşa (Nicosia) and İzmir, and take on projects online from anywhere in Türkiye and Northern Cyprus. I'm drawn to clean lines, warm tones and natural textures – and every design starts with the person who will live in the space.",
+    "p2": "I'm based in Cyprus and İzmir, and work online with clients wherever they are – in Türkiye, Northern Cyprus or abroad. I'm drawn to clean lines, warm tones and natural textures – and every design starts with the person who will live in the space.",
     "p3": "Every project on this site is my own work. For some of them you can see the render and the built result side by side.",
     "portraitAlt": "Black-and-white portrait of Ayşenur Yılmazkan",
     "education": "Education",
     "educationItems": {
       "1": "Cyprus International University – Interior Architecture",
-      "2": "İzmir Kâtip Çelebi University – Dental Technology"
+      "2": "İzmir Kâtip Çelebi University – Dental Assistant"
     },
     "software": "Software I work with",
     "cta": "Tell me about your project"
@@ -169,7 +169,7 @@
   "contact": {
     "title": "Contact",
     "eyebrow": "Let's get started",
-    "intro": "I work online with clients anywhere in Türkiye and Northern Cyprus. WhatsApp is the quickest way – a few sentences about your space are enough.",
+    "intro": "I work online with clients around the world – whether you're in Cyprus, Türkiye or further afield. WhatsApp is the quickest way – a few sentences about your space are enough.",
     "whatsappTitle": "Message me on WhatsApp",
     "whatsappText": "Tell me about your space, its measurements and what you have in mind – we'll plan the rest together.",
     "email": "Email",
@@ -183,7 +183,7 @@
     "floatAria": "Message on WhatsApp (opens in a new tab)"
   },
   "footer": {
-    "serviceArea": "Online service anywhere in Türkiye and Northern Cyprus",
+    "serviceArea": "Online interior design, worldwide",
     "privacy": "Privacy",
     "imprint": "Legal notice",
     "rights": "All rights reserved."

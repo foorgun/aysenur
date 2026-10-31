@@ -134,7 +134,7 @@ Preisformat: TR `3.000 ₺`, EN `₺3,000`. Bei `priceFrom` → TR „… ₺'de
 - EN: Brief call · 2 layout options based on your measurements · Exact furniture size guide for shopping · 1 revision
 - Not: 3D görselleştirme dahil değildir / 3D not included
 
-**3. 3D Oda Tasarımı · 3D Room Design** — `12.000 ₺'den` · tek oda / per room · `highlight: true` („En çok tercih edilen" / „Most popular")
+**3. 3D Oda Tasarımı · 3D Room Design** — `15.000 ₺'den` (von ihr festgelegt, 29.10.2026) · tek oda / per room · `highlight: true` („En çok tercih edilen" / „Most popular")
 - TR: 2D yerleşim planı · 3D modelleme · 4 fotogerçekçi render · Renk, malzeme ve mobilya listesi (satın alma linkleriyle) · 2 revizyon hakkı
 - EN: 2D layout · 3D model · 4 photorealistic renders · Colour, material and furniture list with shopping links · 2 revisions
 
