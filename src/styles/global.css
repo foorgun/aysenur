@@ -304,6 +304,28 @@
   }
 }
 
+@layer components {
+  /* Dekorative Randbilder (EdgeArt): laufen zur Sektionsmitte hin transparent aus */
+  .edge-art {
+    position: absolute;
+    object-fit: cover;
+    opacity: 0.22;
+    filter: saturate(0.75);
+  }
+
+  .edge-art-left {
+    left: 0;
+    -webkit-mask-image: radial-gradient(farthest-side at 0% 50%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(farthest-side at 0% 50%, #000 35%, transparent 100%);
+  }
+
+  .edge-art-right {
+    right: 0;
+    -webkit-mask-image: radial-gradient(farthest-side at 100% 50%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(farthest-side at 100% 50%, #000 35%, transparent 100%);
+  }
+}
+
 /* Dezentes Einblenden beim Scrollen – nur mit JS und ohne reduzierte Bewegung */
 @media (prefers-reduced-motion: no-preference) {
   .js [data-reveal] {

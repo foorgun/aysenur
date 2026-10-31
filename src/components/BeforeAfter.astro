@@ -13,7 +13,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 const pairs = projects.flatMap((project) => project.data.compare.map((pair) => ({ ...pair, project })));
 ---
 
-<section id="compare" class="section">
+<section id="compare" class="section bg-surface/60">
   <div class="container-page">
     <SectionHeading eyebrow={t('compare.eyebrow')} title={t('compare.title')} intro={t('compare.intro')} />
 

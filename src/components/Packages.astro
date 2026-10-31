@@ -1,9 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
+import EdgeArt from './EdgeArt.astro';
 import Icon from './Icon.astro';
 import SectionHeading from './SectionHeading.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
 import { formatPrice, getLangFromUrl, pick, useTranslations } from '../i18n/utils';
+import edgeLeft from '../assets/projects/yatak-odasi-bordo/03.jpg';
+import edgeRight from '../assets/projects/daire-dogal-tonlar/03.jpg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -13,8 +16,14 @@ const packages = (await getCollection('packages')).sort((a, b) => a.data.order -
 // TODO(content): KDV-Hinweis klären (dahil / hariç / nicht anwendbar) und unter den Karten ergänzen
 ---
 
-<section id="packages" class="section bg-surface">
-  <div class="container-page">
+<section id="packages" class="section relative overflow-hidden">
+  <EdgeArt
+    items={[
+      { src: edgeLeft, side: 'left', class: 'top-0 h-[32rem] w-[75vw] md:top-12 md:h-[44rem] md:w-[34vw] md:max-w-[34rem]' },
+      { src: edgeRight, side: 'right', class: 'bottom-0 h-[32rem] w-[75vw] md:h-[44rem] md:w-[34vw] md:max-w-[34rem]' },
+    ]}
+  />
+  <div class="container-page relative">
     <SectionHeading eyebrow={t('packages.eyebrow')} title={t('packages.title')} intro={t('packages.intro')} />
 
     <ul class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-6 lg:gap-6">
@@ -25,7 +34,7 @@ const packages = (await getCollection('packages')).sort((a, b) => a.data.order -
           return (
             <li
               class:list={[
-                'relative flex flex-col rounded-2xl bg-bg p-6 md:p-8',
+                'relative flex flex-col rounded-2xl bg-surface p-6 md:p-8',
                 showPrice ? 'lg:col-span-2' : 'lg:col-span-3',
                 data.highlight && 'ring-2 ring-taupe',
                 // ungerade Kartenzahl: letzte Karte füllt auf Tablet die ganze Zeile

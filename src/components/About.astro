@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import portrait from '../assets/brand/portrait.jpg';
+import portraitDesk from '../assets/brand/portrait-desk.jpg';
+import portraitStanding from '../assets/brand/portrait-standing.jpg';
+import EdgeArt from './EdgeArt.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
 import { SITE } from '../config/site';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
@@ -9,8 +12,14 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 const education = ['1', '2'] as const;
 ---
 
-<section id="about" class="section bg-silk">
-  <div class="container-page grid items-start gap-10 md:grid-cols-[auto_1fr] md:gap-16">
+<section id="about" class="section bg-silk relative overflow-hidden">
+  <EdgeArt
+    items={[
+      { src: portraitStanding, side: 'right', class: 'top-0 h-full w-[70vw] object-top md:w-[32vw] md:max-w-[30rem]' },
+      { src: portraitDesk, side: 'left', class: 'bottom-0 hidden h-[36rem] w-[30vw] max-w-[26rem] md:block' },
+    ]}
+  />
+  <div class="container-page relative grid items-start gap-10 md:grid-cols-[auto_1fr] md:gap-16">
     <div class="mx-auto md:mx-0" data-reveal>
       <!-- Porträt ist nur 386×488 px groß → bewusst klein darstellen -->
       <Image

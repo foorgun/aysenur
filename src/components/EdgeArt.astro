@@ -1,0 +1,26 @@
+---
+// Dekorative, transparent auslaufende Bilder an den Sektionsrändern (rein schmückend → alt="" und aria-hidden)
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import { safeWidths } from '../i18n/utils';
+
+interface Props {
+  items: { src: ImageMetadata; side: 'left' | 'right'; class?: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+  {
+    items.map(({ src, side, class: className }) => (
+      <Image
+        src={src}
+        alt=""
+        widths={safeWidths(src.width, [320, 480, 640])}
+        sizes="(min-width: 768px) 34vw, 75vw"
+        class:list={['edge-art', side === 'left' ? 'edge-art-left' : 'edge-art-right', className]}
+      />
+    ))
+  }
+</div>
